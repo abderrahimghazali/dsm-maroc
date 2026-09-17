@@ -14,15 +14,19 @@ export function Tabs(props: TabsProps) {
   return <BaseTabs.Root {...props} />;
 }
 
-const listVariants = cva("relative isolate flex items-center", {
-  variants: {
-    variant: {
-      underline: "gap-1 border-b border-line",
-      pills: "gap-1 rounded-full bg-surface-muted p-1",
+// Horizontal scroll (scrollbar hidden) so long labels never widen the page on small screens.
+const listVariants = cva(
+  "relative isolate flex items-center overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+  {
+    variants: {
+      variant: {
+        underline: "gap-1 border-b border-line",
+        pills: "gap-1 rounded-full bg-surface-muted p-1",
+      },
     },
+    defaultVariants: { variant: "underline" },
   },
-  defaultVariants: { variant: "underline" },
-});
+);
 
 export type TabsListProps = ComponentProps<typeof BaseTabs.List> & VariantProps<typeof listVariants>;
 
