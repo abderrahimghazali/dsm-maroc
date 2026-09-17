@@ -58,10 +58,16 @@ function stepFor(value: number, min: number, max: number) {
   return Math.min(STEPS - 1, Math.floor(((value - min) / (max - min)) * STEPS));
 }
 
-/** Fill for a choropleth step: primary colour mixed into the surface, 28 % → 100 %. */
+// Map tokens come from globals.css (light and dark values); the fallbacks keep older stylesheets working.
+const REGION = "var(--dsm-map-region, color-mix(in oklab, var(--dsm-primary) 11%, var(--dsm-surface)))";
+const REGION_HOVER = "var(--dsm-map-region-hover, color-mix(in oklab, var(--dsm-primary) 26%, var(--dsm-surface)))";
+const BORDER = "var(--dsm-map-border, var(--dsm-surface))";
+const SCALE_END = "var(--dsm-map-scale-end, var(--dsm-primary))";
+
+/** Fill for a choropleth step: from the idle region colour (15 % of the scale) up to the scale's end colour. */
 function stepFill(step: number) {
-  const pct = Math.round(28 + (step / (STEPS - 1)) * 72);
-  return `color-mix(in oklab, var(--dsm-primary) ${pct}%, var(--dsm-surface))`;
+  const pct = Math.round(15 + (step / (STEPS - 1)) * 85);
+  return `color-mix(in oklab, ${SCALE_END} ${pct}%, ${REGION})`;
 }
 
 /**
@@ -121,16 +127,16 @@ export function MoroccoMap({
           const isHovered = hovered === region.id;
           const name = region.name[locale] ?? region.name.fr;
           const fill =
-            isSelected ? "var(--dsm-primary)"
+            isSelected ? SCALE_END
             : typeof v === "number" ? stepFill(stepFor(v, min, max))
-            : isHovered ? "color-mix(in oklab, var(--dsm-primary) 26%, var(--dsm-surface))"
-            : "color-mix(in oklab, var(--dsm-primary) 11%, var(--dsm-surface))";
+            : isHovered ? REGION_HOVER
+            : REGION;
           return (
             <g key={region.id}>
               <path
                 d={region.d}
                 fill={fill}
-                stroke="var(--dsm-surface)"
+                stroke={BORDER}
                 strokeWidth={1.25}
                 strokeLinejoin="round"
                 className={cn(

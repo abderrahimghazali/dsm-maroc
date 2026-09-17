@@ -56,6 +56,12 @@
   --dsm-link-hover: var(--dsm-bleu-hover);
   --dsm-focus: var(--dsm-bleu);
 
+  /* Map (MoroccoMap): region fill, hover and separators — must stay readable on the canvas in both themes */
+  --dsm-map-region: color-mix(in oklab, var(--dsm-primary) 11%, var(--dsm-surface));
+  --dsm-map-region-hover: color-mix(in oklab, var(--dsm-primary) 26%, var(--dsm-surface));
+  --dsm-map-border: var(--dsm-surface);
+  --dsm-map-scale-end: var(--dsm-primary);
+
   --dsm-info: var(--dsm-bleu);
   --dsm-info-soft: var(--dsm-bleu-soft);
   --dsm-info-soft-fg: var(--dsm-bleu-soft-fg);
@@ -139,6 +145,11 @@
   --dsm-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.04);
   --dsm-shadow-md: 0 4px 14px -2px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(255 255 255 / 0.05);
   --dsm-shadow-lg: 0 18px 44px -14px rgb(0 0 0 / 0.7), 0 0 0 1px rgb(255 255 255 / 0.05);
+
+  --dsm-map-region: color-mix(in oklab, var(--dsm-vert) 32%, var(--dsm-surface-muted));
+  --dsm-map-region-hover: color-mix(in oklab, var(--dsm-vert) 50%, var(--dsm-surface-muted));
+  --dsm-map-border: var(--dsm-canvas);
+  --dsm-map-scale-end: var(--dsm-vert-soft-fg);
 }
 
 /* ---------------------------------------------------------------------------
