@@ -16,6 +16,8 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Generate docs registry
+        run: pnpm registry
       - name: Type-check
         run: npx tsc --noEmit -p .
       - name: Lint
