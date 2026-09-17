@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<p align="center">
+  <img src="public/patterns/khatam.svg" alt="" width="64" height="64" />
+</p>
 
-## Getting Started
+<h1 align="center">DSM — Système de Design du Maroc</h1>
 
-First, run the development server:
+<p align="center">
+  A component-based design system for Moroccan public services — in the spirit of France's DSFR,<br/>
+  built from scratch: trilingual (العربية · ⵜⴰⵎⴰⵣⵉⵖⵜ · français), RTL-first, accessible, light and dark.
+</p>
+
+<p align="center">
+  <a href="#getting-started">Getting started</a> · <a href="#whats-inside">What's inside</a> · <a href="#structure">Structure</a> · <a href="DESIGN.md">Design spec</a>
+</p>
+
+---
+
+## Why
+
+National design systems (DSFR, GOV.UK, USWDS) give citizens instant recognition of an official service and give teams
+a shared, accessible foundation. DSM brings that idea to Morocco with one constraint few systems handle natively:
+**three languages and two writing directions**. Every component works in Arabic (RTL), Tamazight in Tifinagh and
+French, with no product-side code.
+
+## What's inside
+
+- **Foundations** — warm "sable" neutrals, Vert Maroc / Rouge Maroc / Bleu Majorelle / Safran, a multi-script type scale
+  (IBM Plex Sans + Plex Sans Arabic + Noto Sans Tifinagh), spacing, radii, elevation, motion — as CSS variables and
+  Tailwind v4 utilities.
+- **Identity** — the trilingual national block mark, *le filet* (green cap on a red rule), the *khatam* eight-point
+  star tessellation, arch and chamfer shapes.
+- **Components** — 50+ React components on Base UI primitives: header with mega menus and mobile drawer, footer,
+  official banner, forms (field, input, select, checkbox, radio, switch, file upload, OTP, date), navigation
+  (breadcrumb, pagination, tabs, side menu, stepper, table of contents), content (cards, tiles, tables, key figures,
+  timeline, quote, callout, accordion), feedback (alert, badge, notice, toast, progress, skeleton, empty state) and
+  overlays (dialog, alert dialog, drawer, popover, tooltip, consent banner).
+- **Documentation site** — foundations, live examples with language / direction / theme toggles and source code,
+  usage guidance, accessibility and RTL notes, props tables.
+- **Demo portal** — a national public-services portal in fr / ar / zgh: home, online procedure (multi-step form),
+  ministry page, search results, news and error pages.
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Documentation: http://localhost:3000
+- Demo portal: http://localhost:3000/demo/fr · /demo/ar · /demo/zgh
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To use DSM in your own Next.js 16 / Tailwind v4 project, copy `src/dsm`, `src/app/globals.css`, `src/app/fonts.ts` and
+`public/patterns`, install the runtime dependencies and wrap your app in `ThemeProvider` + `LocaleProvider`
+(see the "Prise en main" pages of the docs).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm add @base-ui/react class-variance-authority clsx tailwind-merge lucide-react
+```
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  dsm/                    # the design system (copy this folder)
+    components/           # React components, one family per file
+    i18n/                 # locales (fr, ar, zgh, en), UI strings, LocaleProvider
+    icons/                # curated Lucide set + RTL-aware arrows + social icons
+    lib/cn.ts
+  app/
+    globals.css           # tokens, theme mapping, base styles, signature utilities
+    fonts.ts              # next/font declarations (Plex, Plex Arabic, Tifinagh, Plex Mono)
+    (docs)/               # documentation site
+    demo/[locale]/        # demo portal (fr, ar, zgh)
+  content/
+    examples/<slug>/      # docs metadata (meta.ts) + live examples per component
+    demo/                 # trilingual content of the demo portal
+    registry.generated.tsx  # built by scripts/gen-registry.mjs (predev / prebuild)
+public/patterns/          # khatam / band SVG masks
+DESIGN.md                 # authoring rules for components
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Command          | Description                                   |
+| ---------------- | --------------------------------------------- |
+| `pnpm dev`       | Regenerate the docs registry, start Next.js   |
+| `pnpm build`     | Regenerate the registry, production build     |
+| `pnpm registry`  | Regenerate `src/content/registry.generated.tsx` |
+| `pnpm lint`      | ESLint                                        |
 
-## Deploy on Vercel
+## Languages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Component strings live in `src/dsm/i18n/index.ts` (`UiStrings`) in French, Arabic, Standard Moroccan Amazigh
+(Tifinagh) and English. The Tamazight strings and demo content follow the IRCAM standard to the best of our
+knowledge and **should be reviewed by a native speaker** before production use.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Disclaimer
+
+DSM is an independent project and is not affiliated with, or endorsed by, any Moroccan administration.
+National symbols (flag, star, official denominations) remain the property of the Kingdom of Morocco and must be
+used in accordance with the applicable regulations. Code is released under the MIT licence.

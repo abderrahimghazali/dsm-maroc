@@ -1,26 +1,554 @@
 @import "tailwindcss";
 
+/* =============================================================================
+   DSM — Système de Design du Maroc
+   Foundations: tokens, theme mapping, base styles, RTL, patterns, utilities
+   ============================================================================= */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------------------------------------------------------------------------
+   1. Design tokens
+   --------------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* Neutrals — warm "sable / tadelakt" scale */
+  --dsm-canvas: #faf7f1;
+  --dsm-surface: #ffffff;
+  --dsm-surface-muted: #f4efe7;
+  --dsm-surface-sunken: #ece6db;
+  --dsm-surface-inverse: #1c1a17;
+  --dsm-ink: #1c1a17;
+  --dsm-ink-muted: #5a554d;
+  --dsm-ink-subtle: #8b857b;
+  --dsm-ink-inverse: #faf7f1;
+  --dsm-line: #e4ddd2;
+  --dsm-line-strong: #c6bdaf;
+
+  /* Brand hues */
+  --dsm-rouge: #b5202c;
+  --dsm-rouge-hover: #931a24;
+  --dsm-rouge-soft: #fbebec;
+  --dsm-rouge-soft-fg: #7a1520;
+
+  --dsm-vert: #0b6b3f;
+  --dsm-vert-hover: #085230;
+  --dsm-vert-soft: #e4f3ea;
+  --dsm-vert-soft-fg: #08522f;
+
+  --dsm-bleu: #2b3fa8;
+  --dsm-bleu-hover: #21308a;
+  --dsm-bleu-soft: #e9ecfa;
+  --dsm-bleu-soft-fg: #1e2b7a;
+
+  --dsm-safran: #c4720a;
+  --dsm-safran-hover: #9e5b06;
+  --dsm-safran-soft: #fcf0db;
+  --dsm-safran-soft-fg: #7a4504;
+
+  /* Semantic aliases */
+  --dsm-primary: var(--dsm-vert);
+  --dsm-primary-hover: var(--dsm-vert-hover);
+  --dsm-primary-fg: #ffffff;
+  --dsm-accent: var(--dsm-rouge);
+  --dsm-link: var(--dsm-bleu);
+  --dsm-link-hover: var(--dsm-bleu-hover);
+  --dsm-focus: var(--dsm-bleu);
+
+  --dsm-info: var(--dsm-bleu);
+  --dsm-info-soft: var(--dsm-bleu-soft);
+  --dsm-info-soft-fg: var(--dsm-bleu-soft-fg);
+  --dsm-success: var(--dsm-vert);
+  --dsm-success-soft: var(--dsm-vert-soft);
+  --dsm-success-soft-fg: var(--dsm-vert-soft-fg);
+  --dsm-warning: var(--dsm-safran);
+  --dsm-warning-soft: var(--dsm-safran-soft);
+  --dsm-warning-soft-fg: var(--dsm-safran-soft-fg);
+  --dsm-error: var(--dsm-rouge);
+  --dsm-error-soft: var(--dsm-rouge-soft);
+  --dsm-error-soft-fg: var(--dsm-rouge-soft-fg);
+
+  /* Shape */
+  --dsm-radius-xs: 0.125rem;
+  --dsm-radius-sm: 0.25rem;
+  --dsm-radius-md: 0.375rem;
+  --dsm-radius-lg: 0.75rem;
+  --dsm-radius-xl: 1.25rem;
+
+  /* Elevation — warm ink shadows */
+  --dsm-shadow-xs: 0 1px 2px rgb(28 26 23 / 0.05);
+  --dsm-shadow-sm: 0 1px 2px rgb(28 26 23 / 0.06), 0 0 0 1px rgb(28 26 23 / 0.04);
+  --dsm-shadow-md: 0 4px 14px -2px rgb(28 26 23 / 0.1), 0 0 0 1px rgb(28 26 23 / 0.04);
+  --dsm-shadow-lg: 0 18px 44px -14px rgb(28 26 23 / 0.2), 0 0 0 1px rgb(28 26 23 / 0.04);
+
+  /* Motion */
+  --dsm-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dsm-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dsm-duration-fast: 120ms;
+  --dsm-duration: 200ms;
+  --dsm-duration-slow: 360ms;
+
+  /* Layout */
+  --dsm-container: 78rem;
+  --dsm-gutter: 1.25rem;
+  --dsm-header-height: 4.5rem;
+
+  /* Pattern */
+  --dsm-pattern-size: 96px;
 }
 
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --dsm-canvas: #121110;
+  --dsm-surface: #1a1917;
+  --dsm-surface-muted: #23211e;
+  --dsm-surface-sunken: #0d0c0b;
+  --dsm-surface-inverse: #f3eee6;
+  --dsm-ink: #f3eee6;
+  --dsm-ink-muted: #b5aea3;
+  --dsm-ink-subtle: #7f7970;
+  --dsm-ink-inverse: #1c1a17;
+  --dsm-line: #2e2b27;
+  --dsm-line-strong: #47433d;
+
+  --dsm-rouge: #e4606a;
+  --dsm-rouge-hover: #ec7a83;
+  --dsm-rouge-soft: #3a1a1d;
+  --dsm-rouge-soft-fg: #f5a3a9;
+
+  --dsm-vert: #3fa870;
+  --dsm-vert-hover: #5bbd87;
+  --dsm-vert-soft: #12291d;
+  --dsm-vert-soft-fg: #8ad6ac;
+
+  --dsm-bleu: #8c9bf2;
+  --dsm-bleu-hover: #a6b2f6;
+  --dsm-bleu-soft: #1b1f3a;
+  --dsm-bleu-soft-fg: #b8c2f8;
+
+  --dsm-safran: #e9a23b;
+  --dsm-safran-hover: #f0b65e;
+  --dsm-safran-soft: #33240f;
+  --dsm-safran-soft-fg: #f3c97a;
+
+  --dsm-primary-fg: #0d0c0b;
+
+  --dsm-shadow-xs: 0 1px 2px rgb(0 0 0 / 0.4);
+  --dsm-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.04);
+  --dsm-shadow-md: 0 4px 14px -2px rgb(0 0 0 / 0.55), 0 0 0 1px rgb(255 255 255 / 0.05);
+  --dsm-shadow-lg: 0 18px 44px -14px rgb(0 0 0 / 0.7), 0 0 0 1px rgb(255 255 255 / 0.05);
+}
+
+/* ---------------------------------------------------------------------------
+   2. Tailwind theme mapping
+   --------------------------------------------------------------------------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-*: initial;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-canvas: var(--dsm-canvas);
+  --color-surface: var(--dsm-surface);
+  --color-surface-muted: var(--dsm-surface-muted);
+  --color-surface-sunken: var(--dsm-surface-sunken);
+  --color-surface-inverse: var(--dsm-surface-inverse);
+  --color-ink: var(--dsm-ink);
+  --color-ink-muted: var(--dsm-ink-muted);
+  --color-ink-subtle: var(--dsm-ink-subtle);
+  --color-ink-inverse: var(--dsm-ink-inverse);
+  --color-line: var(--dsm-line);
+  --color-line-strong: var(--dsm-line-strong);
+
+  --color-rouge: var(--dsm-rouge);
+  --color-rouge-hover: var(--dsm-rouge-hover);
+  --color-rouge-soft: var(--dsm-rouge-soft);
+  --color-rouge-soft-fg: var(--dsm-rouge-soft-fg);
+  --color-vert: var(--dsm-vert);
+  --color-vert-hover: var(--dsm-vert-hover);
+  --color-vert-soft: var(--dsm-vert-soft);
+  --color-vert-soft-fg: var(--dsm-vert-soft-fg);
+  --color-bleu: var(--dsm-bleu);
+  --color-bleu-hover: var(--dsm-bleu-hover);
+  --color-bleu-soft: var(--dsm-bleu-soft);
+  --color-bleu-soft-fg: var(--dsm-bleu-soft-fg);
+  --color-safran: var(--dsm-safran);
+  --color-safran-hover: var(--dsm-safran-hover);
+  --color-safran-soft: var(--dsm-safran-soft);
+  --color-safran-soft-fg: var(--dsm-safran-soft-fg);
+
+  --color-primary: var(--dsm-primary);
+  --color-primary-hover: var(--dsm-primary-hover);
+  --color-primary-fg: var(--dsm-primary-fg);
+  --color-accent: var(--dsm-accent);
+  --color-link: var(--dsm-link);
+  --color-link-hover: var(--dsm-link-hover);
+  --color-focus: var(--dsm-focus);
+
+  --color-info: var(--dsm-info);
+  --color-info-soft: var(--dsm-info-soft);
+  --color-info-soft-fg: var(--dsm-info-soft-fg);
+  --color-success: var(--dsm-success);
+  --color-success-soft: var(--dsm-success-soft);
+  --color-success-soft-fg: var(--dsm-success-soft-fg);
+  --color-warning: var(--dsm-warning);
+  --color-warning-soft: var(--dsm-warning-soft);
+  --color-warning-soft-fg: var(--dsm-warning-soft-fg);
+  --color-error: var(--dsm-error);
+  --color-error-soft: var(--dsm-error-soft);
+  --color-error-soft-fg: var(--dsm-error-soft-fg);
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-sans: var(--font-plex), var(--font-plex-arabic), var(--font-tifinagh), ui-sans-serif, system-ui, sans-serif;
+  --font-arabic: var(--font-plex-arabic), var(--font-plex), var(--font-tifinagh), ui-sans-serif, system-ui, sans-serif;
+  --font-tifinagh: var(--font-tifinagh), var(--font-plex), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Type scale */
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1rem;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.35rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.9rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.3rem;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 2.6rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.08;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1.04;
+  --text-display: clamp(2.25rem, 1.6rem + 2.4vw, 3.5rem);
+  --text-display--line-height: 1.06;
+  --text-display-lg: clamp(2.75rem, 1.8rem + 3.6vw, 5rem);
+  --text-display-lg--line-height: 1.02;
+
+  --tracking-tighter: -0.035em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+
+  --radius-xs: var(--dsm-radius-xs);
+  --radius-sm: var(--dsm-radius-sm);
+  --radius-md: var(--dsm-radius-md);
+  --radius-lg: var(--dsm-radius-lg);
+  --radius-xl: var(--dsm-radius-xl);
+
+  --shadow-xs: var(--dsm-shadow-xs);
+  --shadow-sm: var(--dsm-shadow-sm);
+  --shadow-md: var(--dsm-shadow-md);
+  --shadow-lg: var(--dsm-shadow-lg);
+
+  --ease-dsm: var(--dsm-ease);
+  --ease-dsm-out: var(--dsm-ease-out);
+  --default-transition-duration: var(--dsm-duration);
+  --default-transition-timing-function: var(--dsm-ease);
+
+  --container-dsm: var(--dsm-container);
+
+  --animate-dsm-in: dsm-in var(--dsm-duration) var(--dsm-ease-out) both;
+  --animate-dsm-up: dsm-up var(--dsm-duration-slow) var(--dsm-ease-out) both;
+  --animate-dsm-spin: dsm-spin 0.9s linear infinite;
+  --animate-dsm-shimmer: dsm-shimmer 1.6s linear infinite;
+
+  @keyframes dsm-in {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes dsm-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes dsm-spin {
+    to { transform: rotate(360deg); }
+  }
+  @keyframes dsm-shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ---------------------------------------------------------------------------
+   3. Base
+   --------------------------------------------------------------------------- */
+@layer base {
+  html {
+    background-color: var(--dsm-canvas);
+    color: var(--dsm-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "calt", "ss02";
+    scroll-padding-top: calc(var(--dsm-header-height) + 1rem);
+  }
+  body {
+    min-height: 100dvh;
+    background-color: var(--dsm-canvas);
+    color: var(--dsm-ink);
+  }
+
+  /* Script-specific tuning */
+  :lang(ar) {
+    font-family: var(--font-arabic);
+    line-height: 1.75;
+    letter-spacing: 0;
+  }
+  :lang(zgh) {
+    font-family: var(--font-tifinagh);
+  }
+  [dir="rtl"] {
+    letter-spacing: 0;
+  }
+
+  ::selection {
+    background: var(--dsm-vert-soft);
+    color: var(--dsm-ink);
+  }
+  [data-theme="dark"] ::selection {
+    background: var(--dsm-vert-soft-fg);
+    color: var(--dsm-ink-inverse);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--dsm-focus);
+    outline-offset: 2px;
+    border-radius: var(--dsm-radius-xs);
+  }
+
+  a {
+    text-underline-offset: 0.18em;
+  }
+
+  hr {
+    border-color: var(--dsm-line);
+  }
+
+  /* We draw our own clear button in search fields */
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   4. Utilities — signature DSM shapes and patterns
+   --------------------------------------------------------------------------- */
+
+/* Page container */
+@utility dsm-container {
+  width: 100%;
+  max-width: var(--dsm-container);
+  margin-inline: auto;
+  padding-inline: var(--dsm-gutter);
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Le filet — the identity rule: a green cap on a red line, flows with direction */
+@utility dsm-filet {
+  height: 3px;
+  background: linear-gradient(to right, var(--dsm-vert) 0 2.75rem, var(--dsm-rouge) 2.75rem);
+  &:where([dir="rtl"], [dir="rtl"] *) {
+    background: linear-gradient(to left, var(--dsm-vert) 0 2.75rem, var(--dsm-rouge) 2.75rem);
+  }
+}
+@utility dsm-filet-ink {
+  height: 3px;
+  background: linear-gradient(to right, var(--dsm-vert) 0 2.75rem, var(--dsm-ink) 2.75rem);
+  &:where([dir="rtl"], [dir="rtl"] *) {
+    background: linear-gradient(to left, var(--dsm-vert) 0 2.75rem, var(--dsm-ink) 2.75rem);
+  }
+}
+
+/* Khatam — 8-point star tessellation, colorised by currentColor */
+@utility dsm-khatam {
+  background-color: currentColor;
+  mask-image: url("/patterns/khatam.svg");
+  mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size);
+  mask-repeat: repeat;
+  -webkit-mask-image: url("/patterns/khatam.svg");
+  -webkit-mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size);
+  -webkit-mask-repeat: repeat;
+}
+@utility dsm-khatam-fill {
+  background-color: currentColor;
+  mask-image: url("/patterns/khatam-fill.svg");
+  mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size);
+  mask-repeat: repeat;
+  -webkit-mask-image: url("/patterns/khatam-fill.svg");
+  -webkit-mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size);
+  -webkit-mask-repeat: repeat;
+}
+/* Fade a pattern layer out towards the edges */
+@utility dsm-fade-radial {
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+/* Diamond band — decorative rule made of small lozenges */
+@utility dsm-band {
+  height: 8px;
+  background-color: currentColor;
+  mask-image: url("/patterns/band.svg");
+  mask-size: 16px 8px;
+  mask-repeat: repeat-x;
+  -webkit-mask-image: url("/patterns/band.svg");
+  -webkit-mask-size: 16px 8px;
+  -webkit-mask-repeat: repeat-x;
+}
+
+/* Arch — horseshoe top, straight sides */
+@utility dsm-arch {
+  border-start-start-radius: 999px;
+  border-start-end-radius: 999px;
+}
+
+/* Chamfer — tile-cut corner on the end side */
+@utility dsm-chamfer {
+  clip-path: polygon(0 0, calc(100% - 0.75rem) 0, 100% 0.75rem, 100% 100%, 0 100%);
+  &:where([dir="rtl"], [dir="rtl"] *) {
+    clip-path: polygon(0.75rem 0, 100% 0, 100% 100%, 0 100%, 0 0.75rem);
+  }
+}
+
+/* Flip directional glyphs (chevrons, arrows) in RTL */
+@utility dsm-flip-rtl {
+  &:where([dir="rtl"], [dir="rtl"] *) {
+    transform: scaleX(-1);
+  }
+}
+
+/* Visually hidden */
+@utility dsm-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skeleton shimmer */
+@utility dsm-shimmer {
+  background: linear-gradient(90deg, var(--dsm-surface-muted) 25%, var(--dsm-surface-sunken) 50%, var(--dsm-surface-muted) 75%);
+  background-size: 200% 100%;
+  animation: var(--animate-dsm-shimmer);
+}
+
+/* Prose — long-form content */
+@utility dsm-prose {
+  max-width: 68ch;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  & > * + * { margin-block-start: 1.1em; }
+  & h2 { font-size: 1.75rem; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; margin-block-start: 2.2em; }
+  & h3 { font-size: 1.375rem; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; margin-block-start: 1.8em; }
+  & h4 { font-size: 1.125rem; font-weight: 600; margin-block-start: 1.6em; }
+  & a { color: var(--dsm-link); text-decoration: underline; text-decoration-thickness: 1px; }
+  & a:hover { color: var(--dsm-link-hover); text-decoration-thickness: 2px; }
+  & ul, & ol { padding-inline-start: 1.4em; }
+  & ul { list-style: disc; }
+  & ol { list-style: decimal; }
+  & li + li { margin-block-start: 0.35em; }
+  & strong { font-weight: 600; }
+  & code { font-family: var(--font-mono); font-size: 0.9em; background: var(--dsm-surface-muted); padding: 0.1em 0.35em; border-radius: var(--dsm-radius-sm); }
+  & blockquote { border-inline-start: 3px solid var(--dsm-vert); padding-inline-start: 1.25rem; color: var(--dsm-ink-muted); font-style: italic; }
+  & table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+  & th { text-align: start; font-weight: 600; border-block-end: 2px solid var(--dsm-line-strong); padding: 0.6rem 0.75rem; }
+  & td { border-block-end: 1px solid var(--dsm-line); padding: 0.6rem 0.75rem; vertical-align: top; }
+  & img { border-radius: var(--dsm-radius-lg); }
+}
+
+/* Khatam with directional fades (pattern ∩ gradient) */
+@utility dsm-khatam-fade-end {
+  background-color: currentColor;
+  mask-image: url("/patterns/khatam.svg"), linear-gradient(to right, transparent, #000 70%);
+  mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size), 100% 100%;
+  mask-repeat: repeat, no-repeat;
+  mask-composite: intersect;
+  -webkit-mask-image: url("/patterns/khatam.svg"), linear-gradient(to right, transparent, #000 70%);
+  -webkit-mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size), 100% 100%;
+  -webkit-mask-repeat: repeat, no-repeat;
+  -webkit-mask-composite: source-in;
+  &:where([dir="rtl"], [dir="rtl"] *) {
+    mask-image: url("/patterns/khatam.svg"), linear-gradient(to left, transparent, #000 70%);
+    -webkit-mask-image: url("/patterns/khatam.svg"), linear-gradient(to left, transparent, #000 70%);
+  }
+}
+@utility dsm-khatam-fade-start {
+  background-color: currentColor;
+  mask-image: url("/patterns/khatam.svg"), linear-gradient(to left, transparent, #000 70%);
+  mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size), 100% 100%;
+  mask-repeat: repeat, no-repeat;
+  mask-composite: intersect;
+  -webkit-mask-image: url("/patterns/khatam.svg"), linear-gradient(to left, transparent, #000 70%);
+  -webkit-mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size), 100% 100%;
+  -webkit-mask-repeat: repeat, no-repeat;
+  -webkit-mask-composite: source-in;
+  &:where([dir="rtl"], [dir="rtl"] *) {
+    mask-image: url("/patterns/khatam.svg"), linear-gradient(to right, transparent, #000 70%);
+    -webkit-mask-image: url("/patterns/khatam.svg"), linear-gradient(to right, transparent, #000 70%);
+  }
+}
+@utility dsm-khatam-fade-radial {
+  background-color: currentColor;
+  mask-image: url("/patterns/khatam.svg"), radial-gradient(ellipse at center, #000 20%, transparent 72%);
+  mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size), 100% 100%;
+  mask-repeat: repeat, no-repeat;
+  mask-composite: intersect;
+  -webkit-mask-image: url("/patterns/khatam.svg"), radial-gradient(ellipse at center, #000 20%, transparent 72%);
+  -webkit-mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size), 100% 100%;
+  -webkit-mask-repeat: repeat, no-repeat;
+  -webkit-mask-composite: source-in;
+}
+@utility dsm-khatam-fade-bottom {
+  background-color: currentColor;
+  mask-image: url("/patterns/khatam.svg"), linear-gradient(to bottom, #000, transparent);
+  mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size), 100% 100%;
+  mask-repeat: repeat, no-repeat;
+  mask-composite: intersect;
+  -webkit-mask-image: url("/patterns/khatam.svg"), linear-gradient(to bottom, #000, transparent);
+  -webkit-mask-size: var(--dsm-pattern-size) var(--dsm-pattern-size), 100% 100%;
+  -webkit-mask-repeat: repeat, no-repeat;
+  -webkit-mask-composite: source-in;
+}
+
+/* Shiki dual themes */
+.dsm-code .shiki,
+.dsm-code .shiki span {
+  color: var(--shiki-light);
+  background-color: transparent !important;
+}
+[data-theme="dark"] .dsm-code .shiki,
+[data-theme="dark"] .dsm-code .shiki span {
+  color: var(--shiki-dark);
 }
