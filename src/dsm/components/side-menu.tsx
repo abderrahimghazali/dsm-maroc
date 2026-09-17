@@ -14,6 +14,8 @@ export type SideMenuProps = Omit<ComponentProps<"nav">, "title"> & {
   title?: ReactNode;
   items: SideMenuItem[];
   sticky?: boolean;
+  /** Href of the current entry (e.g. from `useScrollSpy`); overrides the items' own `active` flags. */
+  activeHref?: string;
 };
 
 function itemClass(active?: boolean) {
@@ -24,9 +26,17 @@ function itemClass(active?: boolean) {
 }
 
 /** Local, in-page navigation for a section — up to two levels, with collapsible groups. */
-export function SideMenu({ title, items, sticky, className, ...props }: SideMenuProps) {
+export function SideMenu({ title, items: rawItems, sticky, activeHref, className, ...props }: SideMenuProps) {
   const t = useT();
   const label = typeof title === "string" ? title : t.menuTitle;
+  const items =
+    activeHref === undefined
+      ? rawItems
+      : rawItems.map((item) => ({
+          ...item,
+          active: item.href === activeHref,
+          items: item.items?.map((sub) => ({ ...sub, active: sub.href === activeHref })),
+        }));
 
   return (
     <nav

@@ -4,7 +4,7 @@ import { Card, CardArrow, CardBody, CardMeta, CardText, CardTitle } from "@/dsm/
 import { DownloadCard } from "@/dsm/components/download-card";
 import { KeyFigure, KeyFigureGrid } from "@/dsm/components/key-figure";
 import { Tile, TileGrid } from "@/dsm/components/tile";
-import { SideMenu } from "@/dsm/components/side-menu";
+import { SectionMenu } from "./section-menu";
 import { BlockMark } from "@/dsm/components/block-mark";
 import { Badge } from "@/dsm/components/badge";
 import { Accordion, AccordionItem } from "@/dsm/components/accordion";
@@ -37,10 +37,9 @@ export default async function MinistryPage({ params }: { params: Promise<{ local
 
       <div className="dsm-container grid gap-12 py-12 lg:grid-cols-[16rem_minmax(0,1fr)] lg:py-16">
         <aside className="hidden lg:block">
-          <SideMenu
-            sticky
+          <SectionMenu
             items={[
-              { label: m.missionsTitle, href: "#missions", active: true },
+              { label: m.missionsTitle, href: "#missions" },
               { label: m.servicesTitle, href: "#services" },
               { label: m.organisationTitle, href: "#organisation" },
               { label: m.documentsTitle, href: "#documents" },

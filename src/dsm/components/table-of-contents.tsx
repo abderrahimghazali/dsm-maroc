@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState, type ComponentProps, type ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/dsm/lib/cn";
 import { useT } from "@/dsm/i18n/provider";
+import { useScrollSpy } from "@/dsm/lib/use-scroll-spy";
 
 export type TocItem = { id: string; label: string; level?: 1 | 2 };
 
@@ -18,26 +19,7 @@ export type TableOfContentsProps = Omit<ComponentProps<"nav">, "title"> & {
 /** Section outline for a long-form page — tracks the reading position when `observe` is set. */
 export function TableOfContents({ title, items, activeId, observe, sticky, className, ...props }: TableOfContentsProps) {
   const t = useT();
-  const [observedId, setObservedId] = useState<string>();
-
-  useEffect(() => {
-    if (!observe) return;
-    const targets = items.map((i) => document.getElementById(i.id)).filter((el): el is HTMLElement => el !== null);
-    if (targets.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-        if (visible[0]) setObservedId(visible[0].target.id);
-      },
-      { rootMargin: "-96px 0px -70% 0px", threshold: 0 },
-    );
-    targets.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [observe, items.map((i) => i.id).join(",")]);
+  const observedId = useScrollSpy(observe ? items.map((i) => i.id) : []);
 
   const current = activeId ?? observedId;
   const label = typeof title === "string" ? title : t.contents;
