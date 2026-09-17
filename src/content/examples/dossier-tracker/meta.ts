@@ -29,9 +29,9 @@ const meta: ComponentMeta = {
     "Les libellés de statut et de métadonnées viennent du dictionnaire (fr, ar, zgh, en).",
   ],
   examples: [
-    { slug: "default", title: "En cours d'instruction", description: "Le cas courant : quelques étapes franchies, un délai estimé.", wide: true },
-    { slug: "action-required", title: "Action requise", description: "Une pièce manque : l'étape est bloquée et la prochaine action est mise en avant.", wide: true },
-    { slug: "ready", title: "Prêt", description: "Toutes les étapes sont franchies ; l'action est le retrait ou le téléchargement.", wide: true },
+    { slug: "default", title: "En cours d'instruction", description: "Le cas courant : quelques étapes franchies, un délai estimé." },
+    { slug: "action-required", title: "Action requise", description: "Une pièce manque : l'étape est bloquée et la prochaine action est mise en avant." },
+    { slug: "ready", title: "Prêt", description: "Toutes les étapes sont franchies ; l'action est le retrait ou le téléchargement." },
   ],
   props: [
     {
