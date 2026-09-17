@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { MoroccoMap, moroccoRegions, type MoroccoRegionId } from "@/dsm/components/morocco-map";
+import { MoroccoMap, type MoroccoRegionId } from "@/dsm/components/morocco-map";
+import { moroccoRegions } from "@/dsm/data/morocco-regions";
 import { Select } from "@/dsm/components/select";
 import { Field } from "@/dsm/components/field";
 import { useLocale } from "@/dsm/i18n/provider";

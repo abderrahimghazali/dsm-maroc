@@ -4,10 +4,24 @@ import { useId, useState, type ComponentProps, type KeyboardEvent, type ReactNod
 import { cn } from "@/dsm/lib/cn";
 import { localeMeta } from "@/dsm/i18n";
 import { useLocale, useT } from "@/dsm/i18n/provider";
-import { moroccoMapViewBox, moroccoRegions, type MoroccoRegion, type MoroccoRegionId } from "@/dsm/data/morocco-regions";
+import { Popover } from "./popover";
+import { moroccoMapSize, moroccoMapViewBox, moroccoRegions, projectMoroccoPoint, type MoroccoRegion, type MoroccoRegionId } from "@/dsm/data/morocco-regions";
 
+// Data (regions, names, projection) lives in "@/dsm/data/morocco-regions" — a plain module usable from
+// Server Components. Only types are re-exported here, since this file is a Client Component.
 export type { MoroccoRegion, MoroccoRegionId } from "@/dsm/data/morocco-regions";
-export { moroccoRegions } from "@/dsm/data/morocco-regions";
+
+export type MoroccoMapPin = {
+  id: string;
+  /** Geographic position: [longitude, latitude]. */
+  coords: readonly [number, number];
+  /** Popover title and accessible name of the pin. */
+  label: string;
+  description?: ReactNode;
+  /** Extra popover content (address, hours, links…). */
+  content?: ReactNode;
+  tone?: "rouge" | "primary" | "ink";
+};
 
 export type MoroccoMapProps = Omit<ComponentProps<"div">, "onChange" | "defaultValue" | "value"> & {
   /** Selected region (controlled). */
@@ -25,7 +39,17 @@ export type MoroccoMapProps = Omit<ComponentProps<"div">, "onChange" | "defaultV
   caption?: boolean;
   /** Legend for the choropleth scale (shown automatically when `values` is set). */
   legend?: boolean;
+  /** Points of interest drawn over the map; each opens a popover. */
+  pins?: MoroccoMapPin[];
+  /** Print each pin's label next to its marker. */
+  pinLabels?: boolean;
 };
+
+const pinTone = {
+  rouge: "bg-rouge",
+  primary: "bg-primary",
+  ink: "bg-ink",
+} as const;
 
 const STEPS = 5;
 
@@ -54,6 +78,8 @@ export function MoroccoMap({
   interactive = onValueChange !== undefined,
   caption = true,
   legend = true,
+  pins,
+  pinLabels = false,
   className,
   ...props
 }: MoroccoMapProps) {
@@ -80,6 +106,7 @@ export function MoroccoMap({
 
   return (
     <div className={cn("flex flex-col gap-3", className)} {...props}>
+      <div className="relative">
       <svg
         viewBox={moroccoMapViewBox}
         role={interactive ? "group" : "img"}
@@ -168,6 +195,54 @@ export function MoroccoMap({
           </g>
         )}
       </svg>
+
+      {pins && pins.length > 0 && (
+        <ul className="pointer-events-none absolute inset-0 m-0 list-none p-0">
+          {pins.map((pin) => {
+            const [x, y] = projectMoroccoPoint(pin.coords[0], pin.coords[1]);
+            return (
+              <li
+                key={pin.id}
+                className="pointer-events-auto absolute"
+                style={{ left: `${(x / moroccoMapSize.width) * 100}%`, top: `${(y / moroccoMapSize.height) * 100}%` }}
+              >
+                <Popover
+                  side="top"
+                  sideOffset={10}
+                  title={pin.label}
+                  description={pin.description}
+                  trigger={
+                    <button
+                      type="button"
+                      aria-label={pin.label}
+                      className={cn(
+                        "group/pin absolute -translate-x-1/2 -translate-y-1/2 rounded-full p-1.5 outline-none",
+                        "focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          "block size-3.5 rounded-full shadow-[0_0_0_2.5px_var(--dsm-surface),0_1px_3px_rgb(0_0_0/0.35)] transition-transform duration-(--dsm-duration-fast) ease-dsm",
+                          "group-hover/pin:scale-125 group-data-popup-open/pin:scale-125",
+                          pinTone[pin.tone ?? "rouge"],
+                        )}
+                      />
+                      {pinLabels && (
+                        <span className="pointer-events-none absolute start-full top-1/2 ms-0.5 -translate-y-1/2 whitespace-nowrap text-[11px] font-medium text-ink [paint-order:stroke] [-webkit-text-stroke:3px_var(--dsm-surface)]">
+                          {pin.label}
+                        </span>
+                      )}
+                    </button>
+                  }
+                >
+                  {pin.content}
+                </Popover>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+      </div>
 
       {values && legend && numbers.length > 0 && (
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-muted">
