@@ -55,3 +55,4 @@ export * from "./components/file-upload";
 export * from "./components/otp-field";
 export * from "./components/date-input";
 export * from "./components/popup-arrow";
+export * from "./components/morocco-map";

@@ -144,6 +144,9 @@ export type UiStrings = {
   footerLandmark: string;
   quickAccess: string;
   mainNav: string;
+  moroccoMap: string;
+  moroccoMapHint: string;
+  regionCapital: string;
 };
 
 export const ui: Record<Locale, UiStrings> = {
@@ -268,6 +271,9 @@ export const ui: Record<Locale, UiStrings> = {
     footerLandmark: "Pied de page",
     quickAccess: "Accès rapide",
     mainNav: "Navigation principale",
+    moroccoMap: "Carte du Maroc par région",
+    moroccoMapHint: "Survolez ou sélectionnez une région",
+    regionCapital: "Chef-lieu",
   },
   ar: {
     kingdom: "المملكة المغربية",
@@ -390,6 +396,9 @@ export const ui: Record<Locale, UiStrings> = {
     footerLandmark: "تذييل الصفحة",
     quickAccess: "وصول سريع",
     mainNav: "التنقل الرئيسي",
+    moroccoMap: "خريطة المغرب حسب الجهات",
+    moroccoMapHint: "مرّروا المؤشر أو اختاروا جهة",
+    regionCapital: "العاصمة الجهوية",
   },
   // Standard Moroccan Amazigh (IRCAM) — to be reviewed by a native speaker
   zgh: {
@@ -513,6 +522,9 @@ export const ui: Record<Locale, UiStrings> = {
     footerLandmark: "ⴰⴹⴰⵕ ⵏ ⵜⴰⵙⵏⴰ",
     quickAccess: "ⴰⴽⵛⵛⵓⵎ ⴰⵔⵓⵔⴰⴷ",
     mainNav: "ⴰⵏⵏⴰⵢ ⴰⴳⵊⴷⴰⵏ",
+    moroccoMap: "ⵜⴰⴽⴰⵕⴹⴰ ⵏ ⵍⵎⵖⵔⵉⴱ ⵙ ⵜⵙⴳⵉⵡⵉⵏ",
+    moroccoMapHint: "ⵙⵜⵉ ⵏⵖ ⴼⵔⵏ ⵜⴰⵙⴳⴰ",
+    regionCapital: "ⵜⴰⵎⴰⵥⵓⵏⵜ ⵏ ⵜⵙⴳⴰ",
   },
   en: {
     kingdom: "Kingdom of Morocco",
@@ -635,6 +647,9 @@ export const ui: Record<Locale, UiStrings> = {
     footerLandmark: "Footer",
     quickAccess: "Quick access",
     mainNav: "Main navigation",
+    moroccoMap: "Map of Morocco by region",
+    moroccoMapHint: "Hover or select a region",
+    regionCapital: "Capital",
   },
 };
 
