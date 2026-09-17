@@ -6,7 +6,10 @@ import { Badge } from "@/dsm/components/badge";
 import { Card, CardArrow, CardBadges, CardBody, CardFooter, CardMeta, CardText, CardTitle } from "@/dsm/components/card";
 import { ArrowForward } from "@/dsm/icons";
 
-export const metadata: Metadata = { title: "Modèles" };
+export const metadata: Metadata = {
+  title: "Modèles",
+  description: "Le portail national de démonstration assemble les composants DSM en six modèles de page complets, réutilisables tels quels ou comme point de départ pour un service ministériel.",
+};
 
 type Model = {
   meta: string;

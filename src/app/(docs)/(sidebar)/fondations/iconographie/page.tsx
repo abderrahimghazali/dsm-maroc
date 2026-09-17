@@ -85,7 +85,10 @@ import {
   SocialLinkedin,
 } from "@/dsm/icons";
 
-export const metadata: Metadata = { title: "Iconographie" };
+export const metadata: Metadata = {
+  title: "Iconographie",
+  description: "Un jeu curaté de Lucide, importé uniquement depuis @/dsm/icons. Les glyphes directionnels (flèches, chevrons) se retournent seuls en contexte RTL ; les glyphes à sens fixe (validation, fermeture, lien externe) ne bougent jamais.",
+};
 
 const iconGrid: { name: string; Icon: ComponentType<{ className?: string; "aria-hidden"?: boolean }> }[] = [
   { name: "Search", Icon: Search },

@@ -17,7 +17,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const entry = getComponent(slug);
-  return { title: entry ? entry.meta.title : "Composant", description: entry?.meta.description };
+  if (!entry) return { title: "Composant" };
+  const title = entry.meta.titleEn ? `${entry.meta.title} (${entry.meta.titleEn})` : entry.meta.title;
+  return {
+    title,
+    description: entry.meta.description,
+    alternates: { canonical: `/composants/${entry.meta.slug}` },
+    openGraph: { title: `${title} · DSM`, description: entry.meta.description, url: `/composants/${entry.meta.slug}` },
+  };
 }
 
 function List({ items, icon: Icon, tone }: { items: string[]; icon: typeof CircleCheck; tone: string }) {

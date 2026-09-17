@@ -4,7 +4,10 @@ import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { cn } from "@/dsm/lib/cn";
 
-export const metadata: Metadata = { title: "Espacements & grille" };
+export const metadata: Metadata = {
+  title: "Espacements & grille",
+  description: "Une échelle unique en base 4px pour tous les espacements, un conteneur central de 78rem, et une grille de douze colonnes pour composer les pages. Les mêmes valeurs gouvernent le rythme vertical des sections, les rayons et les ombres.",
+};
 
 type Step = { token: string; rem: string; px: string };
 

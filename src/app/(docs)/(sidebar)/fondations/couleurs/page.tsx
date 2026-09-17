@@ -4,7 +4,10 @@ import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { cn } from "@/dsm/lib/cn";
 
-export const metadata: Metadata = { title: "Couleurs" };
+export const metadata: Metadata = {
+  title: "Couleurs",
+  description: "Une palette courte et signifiante : deux couleurs nationales, un bleu de lien, un safran d'alerte et une gamme de neutres chauds inspirés du sable et du tadelakt. Chaque couleur existe en clair et en sombre, et n'est jamais le seul vecteur d'information.",
+};
 
 type Swatch = { name: string; token: string; cls: string; light: string; dark: string; text?: string; note?: string };
 

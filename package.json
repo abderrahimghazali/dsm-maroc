@@ -1,6 +1,30 @@
 {
-  "name": "dsm",
+  "name": "dsm-maroc",
   "version": "0.1.0",
+  "description": "DSM — Système de Design du Maroc: trilingual (ar/zgh/fr), RTL-first design system for Moroccan public digital services.",
+  "homepage": "https://dsm-maroc.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abderrahimghazali/dsm-maroc.git"
+  },
+  "author": {
+    "name": "Abderrahim Ghazali",
+    "url": "https://abderrahimghazali.github.io/"
+  },
+  "keywords": [
+    "design-system",
+    "morocco",
+    "maroc",
+    "gov",
+    "rtl",
+    "arabic",
+    "amazigh",
+    "tifinagh",
+    "nextjs",
+    "tailwindcss",
+    "base-ui",
+    "react"
+  ],
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="#getting-started">Getting started</a> · <a href="#whats-inside">What's inside</a> · <a href="#structure">Structure</a> · <a href="DESIGN.md">Design spec</a>
+  <a href="https://dsm-maroc.vercel.app">Live docs</a> · <a href="#getting-started">Getting started</a> · <a href="#whats-inside">What's inside</a> · <a href="#structure">Structure</a> · <a href="DESIGN.md">Design spec</a> · <a href="#author">Author</a>
 </p>
 
 ---
@@ -99,3 +99,10 @@ knowledge and **should be reviewed by a native speaker** before production use.
 DSM is an independent project and is not affiliated with, or endorsed by, any Moroccan administration.
 National symbols (flag, star, official denominations) remain the property of the Kingdom of Morocco and must be
 used in accordance with the applicable regulations. Code is released under the MIT licence.
+
+## Author
+
+Designed and built by **Abderrahim Ghazali** — [abderrahimghazali.github.io](https://abderrahimghazali.github.io/) ·
+[GitHub](https://github.com/abderrahimghazali) · [X @Ghazalidotdev](https://x.com/Ghazalidotdev).
+
+Questions, licensing or a custom build for a ministry or agency: open an issue on this repository or reach out on X.

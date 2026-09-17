@@ -7,7 +7,10 @@ import { BlockMark, Emblem } from "@/dsm/components/block-mark";
 import { Landmark } from "@/dsm/icons";
 import { cn } from "@/dsm/lib/cn";
 
-export const metadata: Metadata = { title: "Motifs & identité" };
+export const metadata: Metadata = {
+  title: "Motifs & identité",
+  description: "La marque nationale, le filet tricolore et la tessellation en étoile à huit branches (khatam) forment le vocabulaire visuel de DSM. Ce sont des signatures à utiliser avec retenue : elles identifient un service officiel sans jamais concurrencer son contenu.",
+};
 
 export default function Patterns() {
   return (

@@ -6,7 +6,10 @@ import { Badge } from "@/dsm/components/badge";
 import { Button } from "@/dsm/components/button";
 import { Card, CardBody, CardFooter, CardText, CardTitle } from "@/dsm/components/card";
 
-export const metadata: Metadata = { title: "Mode sombre" };
+export const metadata: Metadata = {
+  title: "Mode sombre",
+  description: "Le mode sombre n'est pas une feuille de style séparée : c'est le même composant, alimenté par des jetons qui changent de valeur selon l'attribut data-theme. Aucun composant DSM n'écrit de variante dark:.",
+};
 
 const tokens = [
   { token: "--dsm-canvas", light: "#FAF7F1", dark: "#121110" },

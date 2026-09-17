@@ -4,7 +4,10 @@ import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { Badge } from "@/dsm/components/badge";
 
-export const metadata: Metadata = { title: "Accessibilité" };
+export const metadata: Metadata = {
+  title: "Accessibilité",
+  description: "L'accessibilité n'est pas une option ajoutée en fin de projet : c'est une propriété du système, vérifiée à chaque composant. DSM vise la conformité WCAG 2.2 niveau AA, dans le cadre réglementaire national et des normes internationales applicables aux services publics numériques.",
+};
 
 const guarantees = [
   ["Contraste", "Tous les jetons de texte sur leur fond prévu atteignent AA (4,5:1 pour le texte courant, 3:1 pour le grand texte), en clair comme en sombre."],

@@ -7,7 +7,10 @@ import { kingdomWordmark, localeMeta, ui, type Locale } from "@/dsm/i18n";
 import { cn } from "@/dsm/lib/cn";
 import { TrilingualSample } from "./rtl-demo";
 
-export const metadata: Metadata = { title: "Langues & RTL" };
+export const metadata: Metadata = {
+  title: "Langues & RTL",
+  description: "DSM sert quatre locales — arabe, amazighe (tifinaghe), français, anglais — dont deux directions d'écriture. Chaque composant s'adapte via un fournisseur de contexte et des dictionnaires, sans jamais coder de texte en dur.",
+};
 
 const locales: Locale[] = ["fr", "ar", "zgh", "en"];
 

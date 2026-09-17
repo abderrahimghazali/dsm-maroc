@@ -1,6 +1,7 @@
 import { Header } from "@/dsm/components/header";
 import { Footer } from "@/dsm/components/footer";
 import { headerNav } from "@/content/nav";
+import { siteConfig } from "@/content/site";
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -46,7 +47,44 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
           { label: "Accessibilité : conforme", href: "/accessibilite" },
           { label: "Licence MIT", href: "/prise-en-main#licence" },
         ]}
-        license="DSM v0.1 — Système de Design du Maroc. Code sous licence MIT. Les symboles nationaux restent la propriété du Royaume du Maroc."
+        license={
+          <>
+            DSM v0.1 — Système de Design du Maroc. Code sous licence MIT. Les symboles nationaux restent la propriété du Royaume du Maroc.
+            <br />
+            Conçu et développé par{" "}
+            <a href={siteConfig.author.url} rel="author" className="font-medium text-ink-muted hover:text-ink">
+              {siteConfig.author.name}
+            </a>
+            {" · "}
+            <a href={siteConfig.author.github} rel="me noopener" target="_blank" className="hover:text-ink">
+              GitHub
+            </a>
+            {" · "}
+            <a href={siteConfig.author.x} rel="me noopener" target="_blank" className="hover:text-ink">
+              X
+            </a>
+            {siteConfig.author.linkedin && (
+              <>
+                {" · "}
+                <a href={siteConfig.author.linkedin} rel="me noopener" target="_blank" className="hover:text-ink">
+                  LinkedIn
+                </a>
+              </>
+            )}
+            {siteConfig.author.email && (
+              <>
+                {" · "}
+                <a href={`mailto:${siteConfig.author.email}`} className="hover:text-ink">
+                  {siteConfig.author.email}
+                </a>
+              </>
+            )}
+            {" · "}
+            <a href={siteConfig.repo} rel="noopener" target="_blank" className="hover:text-ink">
+              Code source
+            </a>
+          </>
+        }
       />
     </>
   );

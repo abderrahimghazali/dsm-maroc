@@ -4,7 +4,10 @@ import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { DurationRaceDemo, EasingDemo, EnterDemo, InteractionDemo, MotionPlayground } from "./motion-demo";
 
-export const metadata: Metadata = { title: "Mouvement" };
+export const metadata: Metadata = {
+  title: "Mouvement",
+  description: "Le mouvement dans DSM confirme une action, jamais ne décore. Trois durées, deux courbes d'accélération, et une règle simple : rien ne dépasse 400 millisecondes.",
+};
 
 const componentMap = [
   ["Bouton (survol, appui)", "transition-[background-color,box-shadow,transform] duration-(--dsm-duration-fast)", "Retour immédiat, translation d'1px à l'appui"],

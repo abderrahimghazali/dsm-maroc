@@ -5,7 +5,10 @@ import { Alert } from "@/dsm/components/alert";
 import { Badge } from "@/dsm/components/badge";
 import { cn } from "@/dsm/lib/cn";
 
-export const metadata: Metadata = { title: "Typographie" };
+export const metadata: Metadata = {
+  title: "Typographie",
+  description: "DSM assemble quatre familles pour couvrir les trois langues officielles et le code : IBM Plex Sans pour le français et l'anglais, IBM Plex Sans Arabic pour l'arabe, Noto Sans Tifinagh pour l'amazighe, et IBM Plex Mono pour tout contenu technique. La police change automatiquement avec l'attribut lang, sans classe à ajouter côté produit.",
+};
 
 type Specimen = {
   lang: "fr" | "ar" | "zgh" | "mono";

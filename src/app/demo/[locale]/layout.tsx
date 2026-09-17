@@ -17,7 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   if (!isDemoLocale(locale)) return {};
   const c = await getDemoContent(locale);
-  return { title: { default: c.meta.siteTitle, template: `%s · ${c.meta.siteTitle}` }, description: c.meta.description };
+  return {
+    title: { default: `${c.meta.siteTitle} · Démo DSM`, template: `%s · ${c.meta.siteTitle} · Démo DSM` },
+    description: c.meta.description,
+    openGraph: { locale: localeMeta[locale].code.replace("-", "_"), type: "website" },
+    // Fictitious portal with sample data: keep it out of search results, the documentation is the indexed product.
+    robots: { index: false, follow: true },
+  };
 }
 
 export default async function DemoLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }> }) {

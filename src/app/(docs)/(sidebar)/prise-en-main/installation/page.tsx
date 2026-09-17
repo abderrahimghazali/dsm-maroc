@@ -3,7 +3,10 @@ import { CodeBlock } from "@/components/docs/code";
 import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 
-export const metadata: Metadata = { title: "Installation" };
+export const metadata: Metadata = {
+  title: "Installation",
+  description: "DSM n'est pas un paquet npm : c'est un dossier de sources à copier dans votre application Next.js, puis à faire évoluer comme le reste de votre code.",
+};
 
 const structure = `src/
 ├── app/
