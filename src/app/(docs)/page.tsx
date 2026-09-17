@@ -205,8 +205,8 @@ export default function Home() {
           </div>
           <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {gallery.map((g) => (
-              <li key={g.slug} className="group/g overflow-hidden rounded-lg border border-line bg-canvas shadow-xs transition-[box-shadow,border-color] hover:border-line-strong hover:shadow-md">
-                <div className="flex min-h-40 items-center justify-center p-6">{g.preview}</div>
+              <li key={g.slug} className="group/g flex flex-col overflow-hidden rounded-lg border border-line bg-canvas shadow-xs transition-[box-shadow,border-color] hover:border-line-strong hover:shadow-md">
+                <div className="flex min-h-40 flex-1 items-center justify-center p-6">{g.preview}</div>
                 <Link href={`/composants/${g.slug}`} className="flex items-center justify-between border-t border-line bg-surface px-5 py-3.5 text-sm font-semibold text-ink no-underline">
                   {g.title}
                   <ArrowForward className="size-4 text-ink-subtle transition-transform group-hover/g:translate-x-0.5 rtl:group-hover/g:-translate-x-0.5" />
