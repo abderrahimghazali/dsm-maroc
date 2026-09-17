@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Checkbox } from "@/dsm/components/checkbox";
 import { Popover } from "@/dsm/components/popover";
 import { Button } from "@/dsm/components/button";
 import { Filter } from "@/dsm/icons";
@@ -26,15 +27,7 @@ export default function PopoverComposed() {
     >
       <div className="mt-3 space-y-2">
         {statuses.map((status) => (
-          <label key={status} className="flex items-center gap-2.5 text-sm text-ink">
-            <input
-              type="checkbox"
-              checked={selected.includes(status)}
-              onChange={() => toggle(status)}
-              className="size-4 rounded-sm border-line-strong text-primary focus-visible:ring-2 focus-visible:ring-focus"
-            />
-            {status}
-          </label>
+          <Checkbox key={status} size="sm" label={status} checked={selected.includes(status)} onCheckedChange={() => toggle(status)} />
         ))}
       </div>
     </Popover>

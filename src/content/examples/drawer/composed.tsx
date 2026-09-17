@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Checkbox } from "@/dsm/components/checkbox";
 import { Drawer } from "@/dsm/components/drawer";
 import { Button } from "@/dsm/components/button";
 import { ListFilter } from "@/dsm/icons";
@@ -29,10 +30,9 @@ export default function DrawerComposed() {
     >
       <div className="space-y-2">
         {categories.map((c) => (
-          <label key={c} className="flex items-center gap-2.5 rounded-md px-1 py-1.5 text-sm text-ink">
-            <input type="checkbox" className="size-4 rounded-sm border-line-strong text-primary focus-visible:ring-2 focus-visible:ring-focus" />
-            {c}
-          </label>
+          <div key={c} className="px-1 py-1.5">
+            <Checkbox size="sm" label={c} />
+          </div>
         ))}
       </div>
     </Drawer>

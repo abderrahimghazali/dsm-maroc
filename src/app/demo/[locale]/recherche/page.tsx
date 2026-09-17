@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/dsm/components/badge";
 import { Breadcrumb } from "@/dsm/components/breadcrumb";
 import { Card, CardArrow, CardBadges, CardBody, CardFooter, CardMeta, CardText, CardTitle } from "@/dsm/components/card";
+import { Checkbox } from "@/dsm/components/checkbox";
 import { EmptyState } from "@/dsm/components/empty-state";
 import { Pagination } from "@/dsm/components/pagination";
 import { Tag, TagGroup } from "@/dsm/components/tag";
@@ -58,10 +59,7 @@ export default async function SearchPage({ params, searchParams }: { params: Pro
             <ul className="mt-3 space-y-2 text-sm">
               {c.search.filterMinistries.map((mi) => (
                 <li key={mi}>
-                  <label className="flex cursor-pointer items-start gap-2.5 text-ink-muted hover:text-ink">
-                    <input type="checkbox" className="mt-1 size-4 accent-[var(--dsm-primary)]" />
-                    <span>{mi}</span>
-                  </label>
+                  <Checkbox size="sm" label={mi} />
                 </li>
               ))}
             </ul>
