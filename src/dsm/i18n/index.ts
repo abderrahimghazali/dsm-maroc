@@ -147,6 +147,21 @@ export type UiStrings = {
   moroccoMap: string;
   moroccoMapHint: string;
   regionCapital: string;
+  cnieInvalid: string;
+  iceInvalid: string;
+  ribInvalid: string;
+  phoneInvalid: string;
+  dossierReference: string;
+  dossierSubmittedOn: string;
+  dossierUpdated: string;
+  dossierExpected: string;
+  dossierNextAction: string;
+  statusSubmitted: string;
+  statusInReview: string;
+  statusActionRequired: string;
+  statusApproved: string;
+  statusRejected: string;
+  statusReady: string;
 };
 
 export const ui: Record<Locale, UiStrings> = {
@@ -274,6 +289,21 @@ export const ui: Record<Locale, UiStrings> = {
     moroccoMap: "Carte du Maroc par région",
     moroccoMapHint: "Survolez ou sélectionnez une région",
     regionCapital: "Chef-lieu",
+    cnieInvalid: "Numéro de CNIE invalide : une ou deux lettres suivies de 5 à 7 chiffres (ex. AB123456).",
+    iceInvalid: "L'ICE comporte exactement 15 chiffres.",
+    ribInvalid: "RIB invalide : 24 chiffres et une clé de contrôle correcte.",
+    phoneInvalid: "Numéro invalide : 10 chiffres commençant par 05, 06, 07 ou 08.",
+    dossierReference: "Référence",
+    dossierSubmittedOn: "Déposé le",
+    dossierUpdated: "Mis à jour le",
+    dossierExpected: "Délai estimé",
+    dossierNextAction: "Prochaine étape pour vous",
+    statusSubmitted: "Déposé",
+    statusInReview: "En cours d'instruction",
+    statusActionRequired: "Action requise",
+    statusApproved: "Accepté",
+    statusRejected: "Refusé",
+    statusReady: "Prêt",
   },
   ar: {
     kingdom: "المملكة المغربية",
@@ -399,6 +429,21 @@ export const ui: Record<Locale, UiStrings> = {
     moroccoMap: "خريطة المغرب حسب الجهات",
     moroccoMapHint: "مرّروا المؤشر أو اختاروا جهة",
     regionCapital: "العاصمة الجهوية",
+    cnieInvalid: "رقم البطاقة الوطنية غير صالح: حرف أو حرفان ثم 5 إلى 7 أرقام (مثال AB123456).",
+    iceInvalid: "يتكون المعرف الموحد للمقاولة من 15 رقمًا بالضبط.",
+    ribInvalid: "رقم الحساب البنكي غير صالح: 24 رقمًا ومفتاح تحقق صحيح.",
+    phoneInvalid: "رقم غير صالح: 10 أرقام تبدأ بـ 05 أو 06 أو 07 أو 08.",
+    dossierReference: "المرجع",
+    dossierSubmittedOn: "تاريخ الإيداع",
+    dossierUpdated: "آخر تحديث",
+    dossierExpected: "الأجل المتوقع",
+    dossierNextAction: "الخطوة التالية من جهتكم",
+    statusSubmitted: "تم الإيداع",
+    statusInReview: "قيد الدراسة",
+    statusActionRequired: "يتطلب إجراءً",
+    statusApproved: "مقبول",
+    statusRejected: "مرفوض",
+    statusReady: "جاهز",
   },
   // Standard Moroccan Amazigh (IRCAM) — to be reviewed by a native speaker
   zgh: {
@@ -525,6 +570,21 @@ export const ui: Record<Locale, UiStrings> = {
     moroccoMap: "ⵜⴰⴽⴰⵕⴹⴰ ⵏ ⵍⵎⵖⵔⵉⴱ ⵙ ⵜⵙⴳⵉⵡⵉⵏ",
     moroccoMapHint: "ⵙⵜⵉ ⵏⵖ ⴼⵔⵏ ⵜⴰⵙⴳⴰ",
     regionCapital: "ⵜⴰⵎⴰⵥⵓⵏⵜ ⵏ ⵜⵙⴳⴰ",
+    cnieInvalid: "ⵓⵟⵟⵓⵏ ⵏ ⵜⴽⴰⵕⴹⴰ ⵜⴰⵏⴰⵎⵓⵔⵜ ⵓⵔ ⵉⵖⵉ: ⵢⴰⵏ ⵏⵖ ⵙⵉⵏ ⵉⵙⴽⴽⵉⵍⵏ ⴷ 5 ⴰⵔ 7 ⵓⵟⵟⵓⵏⵏ (ⴰⵎⴷⵢⴰ AB123456).",
+    iceInvalid: "ICE ⵉⵍⴰ 15 ⵓⵟⵟⵓⵏⵏ ⵙ ⵓⵎⴰⵜⴰ.",
+    ribInvalid: "RIB ⵓⵔ ⵉⵖⵉ: 24 ⵓⵟⵟⵓⵏⵏ ⴷ ⵜⵙⴰⵔⵓⵜ ⵏ ⵓⵙⴼⵙⵉ ⵜⴰⵎⵖⵜⴰⵙⵜ.",
+    phoneInvalid: "ⵓⵟⵟⵓⵏ ⵓⵔ ⵉⵖⵉ: 10 ⵓⵟⵟⵓⵏⵏ ⵉⴱⴷⴷⴰⵏ ⵙ 05, 06, 07 ⵏⵖ 08.",
+    dossierReference: "ⴰⵙⴰⵖⵓⵍ",
+    dossierSubmittedOn: "ⵉⵜⵜⵓⵙⵔⵙ ⴳ",
+    dossierUpdated: "ⵉⵜⵜⵓⵙⵎⴰⵢⵏⵓ ⴳ",
+    dossierExpected: "ⴰⵣⵎⵣ ⵉⵜⵜⵓⵔⴰⵊⴰⵏ",
+    dossierNextAction: "ⵜⴰⵙⵓⵔⵉⴼⵜ ⵜⴰⴷ ⵉⴹⴼⴰⵕⵏ ⵉ ⴽⵯⵏⵏⵉ",
+    statusSubmitted: "ⵉⵜⵜⵓⵙⵔⵙ",
+    statusInReview: "ⴳ ⵓⵙⵡⵉⵏⴳⵎ",
+    statusActionRequired: "ⵜⵍⴰ ⵢⴰⵜ ⵜⵉⴳⴰⵡⵜ",
+    statusApproved: "ⵉⵜⵜⵓⵇⴱⴰⵍ",
+    statusRejected: "ⵉⵜⵜⵡⴰⴳⵉ",
+    statusReady: "ⵉⵡⵊⴷ",
   },
   en: {
     kingdom: "Kingdom of Morocco",
@@ -650,6 +710,21 @@ export const ui: Record<Locale, UiStrings> = {
     moroccoMap: "Map of Morocco by region",
     moroccoMapHint: "Hover or select a region",
     regionCapital: "Capital",
+    cnieInvalid: "Invalid CNIE number: one or two letters followed by 5 to 7 digits (e.g. AB123456).",
+    iceInvalid: "The ICE has exactly 15 digits.",
+    ribInvalid: "Invalid RIB: 24 digits with a correct control key.",
+    phoneInvalid: "Invalid number: 10 digits starting with 05, 06, 07 or 08.",
+    dossierReference: "Reference",
+    dossierSubmittedOn: "Submitted on",
+    dossierUpdated: "Updated on",
+    dossierExpected: "Expected by",
+    dossierNextAction: "Your next step",
+    statusSubmitted: "Submitted",
+    statusInReview: "Under review",
+    statusActionRequired: "Action required",
+    statusApproved: "Approved",
+    statusRejected: "Rejected",
+    statusReady: "Ready",
   },
 };
 

@@ -1,6 +1,6 @@
 {
   "name": "dsm-maroc",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "CLI to install DSM — Système de Design du Maroc — into a Next.js + Tailwind v4 project.",
   "type": "module",
   "bin": {

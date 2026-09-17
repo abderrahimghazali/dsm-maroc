@@ -57,3 +57,6 @@ export * from "./components/date-input";
 export * from "./components/popup-arrow";
 export * from "./components/morocco-map";
 export * from "./data/morocco-regions";
+export * from "./components/identity-input";
+export * from "./components/dossier-tracker";
+export * from "./lib/identity";
