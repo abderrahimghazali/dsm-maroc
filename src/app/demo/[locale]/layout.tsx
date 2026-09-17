@@ -9,6 +9,7 @@ import { SocialFacebook, SocialInstagram, SocialLinkedin, SocialX, SocialYoutube
 import { demoHref, demoLocales, getDemoContent, isDemoLocale, localeLinksFor } from "@/content/demo";
 import { HtmlAttrs } from "./html-attrs";
 import { DemoNotice } from "./demo-notice";
+import { DemoConsent } from "./demo-consent";
 
 export function generateStaticParams() {
   return demoLocales.map((locale) => ({ locale }));
@@ -75,6 +76,7 @@ export default async function DemoLayout({ children, params }: { children: React
           ]}
           license={c.footer.license}
         />
+        <DemoConsent cookiesHref={demoHref(locale, "/cookies")} />
       </div>
     </LocaleProvider>
   );
