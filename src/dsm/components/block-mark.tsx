@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/dsm/lib/cn";
-import { kingdomWordmark, type Locale } from "@/dsm/i18n";
+import { ui, kingdomWordmark, type Locale } from "@/dsm/i18n";
 
 type Size = "sm" | "md" | "lg";
 
@@ -46,7 +46,7 @@ export function BlockMark({ entity, locale = "fr", href = "/", size = "md", inve
   const content = (
     <span className={cn("inline-flex items-center", s.gap)}>
       <Emblem className={s.emblem} inverse={inverse} />
-      <span className="flex flex-col justify-center leading-none" aria-label="Royaume du Maroc">
+      <span className="flex flex-col justify-center leading-none" aria-label={ui[locale].kingdom}>
         {kingdomWordmark.map((line) => (
           <span
             key={line.lang}

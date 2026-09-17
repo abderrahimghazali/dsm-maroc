@@ -62,6 +62,11 @@ export default function Installation() {
           . Chaque version embarque un instantané des sources ; pour mettre à jour un composant, relancez{" "}
           <code className="font-mono text-xs">npx dsm-maroc@latest add button --overwrite</code> et relisez le diff.
         </p>
+        <p className="mt-2 text-sm text-ink-muted">
+          Le fichier <code className="font-mono text-xs">dsm.css</code> installé conserve la palette Tailwind de votre application. La documentation,
+          elle, la désactive (<code className="font-mono text-xs">--color-*: initial</code>) pour n&apos;autoriser que les jetons DSM ; ajoutez cette
+          ligne dans le bloc <code className="font-mono text-xs">@theme inline</code> si vous voulez la même discipline.
+        </p>
       </Section>
 
       <Section

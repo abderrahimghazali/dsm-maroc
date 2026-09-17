@@ -45,7 +45,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         ]}
         bottomLinks={[
           { label: "Plan du site", href: "/composants" },
-          { label: "Accessibilité : conforme", href: "/accessibilite" },
+          { label: "Accessibilité : AA visée, audit à venir", href: "/accessibilite" },
           { label: "Licence MIT", href: "/prise-en-main#licence" },
         ]}
         license={

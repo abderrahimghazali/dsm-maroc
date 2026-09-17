@@ -34,7 +34,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "cli:sync": "node cli/scripts/sync.mjs"
+    "cli:sync": "node cli/scripts/sync.mjs",
+    "test": "node --test cli/test/cli.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

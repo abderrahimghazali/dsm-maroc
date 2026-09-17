@@ -70,7 +70,7 @@ export function Footer({
         </div>
 
         {columns.length > 0 && (
-          <nav aria-label="Pied de page" className={cn("grid gap-8 sm:grid-cols-2", columns.length >= 3 && "lg:grid-cols-3")}>
+          <nav aria-label={t.footerLandmark} className={cn("grid gap-8 sm:grid-cols-2", columns.length >= 3 && "lg:grid-cols-3")}>
             {columns.map((col) => (
               <div key={col.title}>
                 <p className="text-xs font-semibold uppercase tracking-wider text-ink-subtle">{col.title}</p>

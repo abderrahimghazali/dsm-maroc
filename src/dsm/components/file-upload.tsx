@@ -42,8 +42,8 @@ export function FileUpload({ label, accept, maxSizeMb, multiple, error, onFilesC
 
   const formats = acceptedFormats(accept);
   const autoHint = [
-    formats.length > 0 ? `Formats acceptés : ${formats.join(", ")}` : null,
-    maxSizeMb ? `${maxSizeMb} Mo max` : null,
+    formats.length > 0 ? `${t.acceptedFormats} : ${formats.join(", ")}` : null,
+    maxSizeMb ? `${maxSizeMb} ${t.maxSizeSuffix}` : null,
   ]
     .filter(Boolean)
     .join(" · ");

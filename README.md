@@ -5,7 +5,8 @@
 <h1 align="center">DSM — Système de Design du Maroc</h1>
 
 <p align="center">
-  A component-based design system for Moroccan public services — in the spirit of France's DSFR,<br/>
+  <strong>An independent, open-source design system for Moroccan public services.</strong><br/>
+  Component-based, in the spirit of France's DSFR — in the spirit of France's DSFR,<br/>
   built from scratch: trilingual (العربية · ⵜⴰⵎⴰⵣⵉⵖⵜ · français), RTL-first, accessible, light and dark.
 </p>
 

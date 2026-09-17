@@ -8,6 +8,7 @@ import { localeMeta } from "@/dsm/i18n";
 import { SocialFacebook, SocialInstagram, SocialLinkedin, SocialX, SocialYoutube } from "@/dsm/icons";
 import { demoHref, demoLocales, getDemoContent, isDemoLocale, localeLinksFor } from "@/content/demo";
 import { HtmlAttrs } from "./html-attrs";
+import { DemoNotice } from "./demo-notice";
 
 export function generateStaticParams() {
   return demoLocales.map((locale) => ({ locale }));
@@ -44,6 +45,7 @@ export default async function DemoLayout({ children, params }: { children: React
     <LocaleProvider locale={locale}>
       <HtmlAttrs lang={meta.code} dir={meta.dir} />
       <div dir={meta.dir} lang={meta.code} className="flex min-h-dvh flex-col bg-canvas text-ink">
+        <DemoNotice text={c.meta.demoNotice} linkLabel={c.meta.demoNoticeLink} />
         <OfficialBanner />
         <Header
           entity={entity}

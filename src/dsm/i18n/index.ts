@@ -139,6 +139,11 @@ export type UiStrings = {
   secure: string;
   steps: string;
   menuTitle: string;
+  acceptedFormats: string;
+  maxSizeSuffix: string;
+  footerLandmark: string;
+  quickAccess: string;
+  mainNav: string;
 };
 
 export const ui: Record<Locale, UiStrings> = {
@@ -258,6 +263,11 @@ export const ui: Record<Locale, UiStrings> = {
     secure: "Sécurisé",
     steps: "Étapes",
     menuTitle: "Dans cette rubrique",
+    acceptedFormats: "Formats acceptés",
+    maxSizeSuffix: "Mo max",
+    footerLandmark: "Pied de page",
+    quickAccess: "Accès rapide",
+    mainNav: "Navigation principale",
   },
   ar: {
     kingdom: "المملكة المغربية",
@@ -375,6 +385,11 @@ export const ui: Record<Locale, UiStrings> = {
     secure: "آمن",
     steps: "الخطوات",
     menuTitle: "في هذا القسم",
+    acceptedFormats: "الصيغ المقبولة",
+    maxSizeSuffix: "ميغابايت كحد أقصى",
+    footerLandmark: "تذييل الصفحة",
+    quickAccess: "وصول سريع",
+    mainNav: "التنقل الرئيسي",
   },
   // Standard Moroccan Amazigh (IRCAM) — to be reviewed by a native speaker
   zgh: {
@@ -493,6 +508,11 @@ export const ui: Record<Locale, UiStrings> = {
     secure: "ⵉⵜⵜⵓⴼⵔⴰⴳ",
     steps: "ⵜⵉⵙⵓⵔⵉⴼⵉⵏ",
     menuTitle: "ⴳ ⵜⵉⴳⵣⵎⵉ ⴰⴷ",
+    acceptedFormats: "ⵜⴰⵍⵖⵉⵡⵉⵏ ⵉⵜⵜⵓⵇⴱⴰⵍⵏ",
+    maxSizeSuffix: "ⵎⴱ ⵙ ⵓⴼⵍⵍⴰ",
+    footerLandmark: "ⴰⴹⴰⵕ ⵏ ⵜⴰⵙⵏⴰ",
+    quickAccess: "ⴰⴽⵛⵛⵓⵎ ⴰⵔⵓⵔⴰⴷ",
+    mainNav: "ⴰⵏⵏⴰⵢ ⴰⴳⵊⴷⴰⵏ",
   },
   en: {
     kingdom: "Kingdom of Morocco",
@@ -610,6 +630,11 @@ export const ui: Record<Locale, UiStrings> = {
     secure: "Secure",
     steps: "Steps",
     menuTitle: "In this section",
+    acceptedFormats: "Accepted formats",
+    maxSizeSuffix: "MB max",
+    footerLandmark: "Footer",
+    quickAccess: "Quick access",
+    mainNav: "Main navigation",
   },
 };
 

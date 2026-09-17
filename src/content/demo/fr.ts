@@ -8,6 +8,8 @@ const content: DemoContent = {
     description:
       "Portail officiel des démarches et services publics du Royaume du Maroc : état civil, identité, véhicules, impôts, santé, éducation, emploi et logement.",
     officialBanner: "Un site officiel du Royaume du Maroc",
+    demoNotice: "Démonstration indépendante : ce portail fictif illustre le système de design DSM. Ce n'est pas un site officiel et aucune donnée n'est transmise.",
+    demoNoticeLink: "Découvrir DSM",
   },
   nav: [
     { label: "Accueil", href: "/" },
@@ -386,6 +388,9 @@ const content: DemoContent = {
       previous: "Précédent",
       next: "Suivant",
       saveDraft: "Enregistrer un brouillon",
+      draftSavedText: "Conservé sur cet appareil uniquement — démonstration, rien n'est transmis.",
+      draftFound: "Un brouillon a été enregistré sur cet appareil.",
+      resumeDraft: "Reprendre le brouillon",
       success: {
         title: "Votre demande a bien été envoyée",
         text: "Vous recevrez une notification dès que votre extrait d'acte de naissance sera prêt. Vous pouvez suivre l'avancement de votre demande à tout moment depuis votre espace personnel.",
@@ -545,6 +550,8 @@ const content: DemoContent = {
     categories: ["Service numérique", "Fiscalité", "Sécurité", "Simplification"],
   },
   errors: {
+    demoStubTitle: "Page non réalisée dans cette démonstration",
+    demoStubText: "Ce lien existe pour rendre la navigation réaliste, mais la page n'a pas été construite. Les composants nécessaires sont disponibles dans la documentation DSM.",
     notFoundTitle: "Page introuvable",
     notFoundText: "La page que vous recherchez n'existe pas ou a été déplacée. Vérifiez l'adresse ou utilisez la recherche.",
     serverTitle: "Une erreur est survenue",

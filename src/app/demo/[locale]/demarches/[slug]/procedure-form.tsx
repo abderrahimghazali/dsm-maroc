@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { Alert } from "@/dsm/components/alert";
 import { Button, ButtonGroup } from "@/dsm/components/button";
 import { Checkbox } from "@/dsm/components/checkbox";
@@ -44,9 +44,27 @@ export function ProcedureForm({ locale, form }: { locale: DemoLocale; form: Form
   );
 }
 
-function FormInner({ form }: { locale: DemoLocale; form: FormContent }) {
+const DRAFT_EVENT = "dsm-demo-draft";
+
+function subscribeDraft(cb: () => void) {
+  window.addEventListener("storage", cb);
+  window.addEventListener(DRAFT_EVENT, cb);
+  return () => {
+    window.removeEventListener("storage", cb);
+    window.removeEventListener(DRAFT_EVENT, cb);
+  };
+}
+
+function FormInner({ locale, form }: { locale: DemoLocale; form: FormContent }) {
   const t = useT();
   const toast = useToast();
+  const draftKey = `dsm-demo-draft:${locale}`;
+  // Demo only: the draft lives in this browser's localStorage, nothing leaves the device.
+  const hasDraft = useSyncExternalStore(
+    subscribeDraft,
+    () => localStorage.getItem(draftKey) !== null,
+    () => false,
+  );
   const [step, setStep] = useState(0); // 0..n-1 = fields, n = review
   const [values, setValues] = useState<Values>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -79,11 +97,31 @@ function FormInner({ form }: { locale: DemoLocale; form: FormContent }) {
     setStep((s) => Math.max(s - 1, 0));
     document.getElementById("formulaire")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  const saveDraft = () => {
+    const serialisable = Object.fromEntries(
+      Object.entries(values).filter(([, v]) => typeof v === "string" || typeof v === "boolean" || Array.isArray(v)),
+    );
+    localStorage.setItem(draftKey, JSON.stringify({ step, values: serialisable }));
+    window.dispatchEvent(new Event(DRAFT_EVENT));
+    toast.add({ title: t.draftSaved, description: form.draftSavedText, tone: "info" });
+  };
+  const resumeDraft = () => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(draftKey) ?? "null") as { step: number; values: Values } | null;
+      if (!saved) return;
+      setValues(saved.values);
+      setStep(Math.min(saved.step, reviewIndex));
+    } catch {
+      localStorage.removeItem(draftKey);
+    }
+  };
   const submit = () => {
     if (!consent) {
       setConsentError(true);
       return;
     }
+    localStorage.removeItem(draftKey);
+    window.dispatchEvent(new Event(DRAFT_EVENT));
     setSubmitted(true);
     toast.add({ title: form.success.title, description: form.success.reference, tone: "success" });
     document.getElementById("formulaire")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -135,6 +173,18 @@ function FormInner({ form }: { locale: DemoLocale; form: FormContent }) {
           nextTitle={isReview ? undefined : step + 1 < reviewIndex ? form.steps[step + 1].title : form.reviewTitle}
         />
       </div>
+
+      {hasDraft && step === 0 && (
+        <div className="border-b border-line px-6 pt-6 sm:px-8">
+          <Alert tone="info" size="sm" title={form.draftFound}>
+            <p>{form.draftSavedText}</p>
+            <Button type="button" size="sm" variant="secondary" className="mt-3" onClick={resumeDraft}>
+              {form.resumeDraft}
+            </Button>
+          </Alert>
+          <div className="pb-6" />
+        </div>
+      )}
 
       <form
         noValidate
@@ -284,7 +334,7 @@ function FormInner({ form }: { locale: DemoLocale; form: FormContent }) {
             <Button
               type="button"
               variant="tertiary"
-              onClick={() => toast.add({ title: t.draftSaved, tone: "info" })}
+              onClick={saveDraft}
             >
               {form.saveDraft}
             </Button>

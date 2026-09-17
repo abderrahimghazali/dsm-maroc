@@ -1,18 +1,44 @@
 {
   "name": "dsm-maroc",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI to install DSM — Système de Design du Maroc — into a Next.js + Tailwind v4 project.",
   "type": "module",
-  "bin": { "dsm-maroc": "bin/dsm-maroc.js" },
-  "files": ["bin", "templates", "README.md"],
-  "engines": { "node": ">=18.18" },
+  "bin": {
+    "dsm-maroc": "bin/dsm-maroc.js"
+  },
+  "files": [
+    "bin",
+    "templates",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.18"
+  },
   "scripts": {
     "sync": "node scripts/sync.mjs",
+    "test": "node --test test/cli.test.mjs",
     "prepack": "node scripts/sync.mjs"
   },
-  "keywords": ["design-system", "morocco", "maroc", "nextjs", "tailwindcss", "rtl", "arabic", "amazigh", "cli"],
+  "keywords": [
+    "design-system",
+    "morocco",
+    "maroc",
+    "nextjs",
+    "tailwindcss",
+    "rtl",
+    "arabic",
+    "amazigh",
+    "cli"
+  ],
   "homepage": "https://dsm-maroc.vercel.app",
-  "repository": { "type": "git", "url": "https://github.com/abderrahimghazali/dsm-maroc.git", "directory": "cli" },
-  "author": { "name": "Abderrahim Ghazali", "url": "https://abderrahimghazali.github.io/" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abderrahimghazali/dsm-maroc.git",
+    "directory": "cli"
+  },
+  "author": {
+    "name": "Abderrahim Ghazali",
+    "url": "https://abderrahimghazali.github.io/"
+  },
   "license": "SEE LICENSE IN https://dsm-maroc.vercel.app/prise-en-main#licence"
 }

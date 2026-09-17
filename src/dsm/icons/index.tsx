@@ -37,6 +37,7 @@ import {
   MapPin,
   Calendar,
   Clock,
+  Construction,
   FileText,
   File,
   Paperclip,
@@ -168,7 +169,7 @@ export function ArrowOutward(props: IconProps) {
 
 export {
   ArrowRight, ArrowLeft, ArrowUpRight, ArrowUp, ArrowDown, ChevronRight, ChevronLeft, ChevronDown, ChevronUp, ChevronsUpDown,
-  Check, X, Search, SearchX, Menu, Globe, Sun, Moon, Monitor, Info, CircleCheck, TriangleAlert, CircleAlert, CircleX,
+  Check, X, Search, SearchX, Menu, Globe, Sun, Moon, Monitor, Info, CircleCheck, TriangleAlert, CircleAlert, CircleX, Construction,
   ExternalLink, SquareArrowOutUpRight, Download, Share2, Printer, Copy, User, Users, LogIn, LogOut, Mail, Phone, PhoneCall, MapPin,
   Calendar, CalendarCheck, Clock, Timer, Hourglass, FileText, File, Paperclip, Upload, Filter, ListFilter, Plus, Minus, Eye, EyeOff,
   Lock, Star, Building, Building2, Landmark, Home, MoreHorizontal, Ellipsis, Dot, Loader2, CircleHelp, Accessibility, Languages,

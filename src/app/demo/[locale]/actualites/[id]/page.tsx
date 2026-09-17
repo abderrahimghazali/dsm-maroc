@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { DemoStub } from "../../demo-stub";
 import { Badge } from "@/dsm/components/badge";
 import { Breadcrumb } from "@/dsm/components/breadcrumb";
 import { Card, CardArrow, CardBody, CardFooter, CardMeta, CardTitle } from "@/dsm/components/card";
@@ -21,7 +22,7 @@ export default async function NewsArticle({ params }: { params: Promise<{ locale
   const c = await getDemoContent(locale);
   const t = ui[locale];
   const article = c.home.news.find((n) => n.id === id);
-  if (!article) notFound();
+  if (!article) return <DemoStub locale={locale} />;
   const related = c.home.news.filter((n) => n.id !== id).slice(0, 2);
   const href = (p: string) => demoHref(locale, p);
 

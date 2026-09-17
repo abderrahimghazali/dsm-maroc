@@ -63,6 +63,9 @@ export type DemoContent = {
     entity: string;
     description: string;
     officialBanner: string;
+    /** Persistent strip telling visitors this is an independent demonstration, not a government site. */
+    demoNotice: string;
+    demoNoticeLink: string;
   };
   nav: DemoNavItem[];
   common: {
@@ -144,6 +147,9 @@ export type DemoContent = {
       previous: string;
       next: string;
       saveDraft: string;
+      draftSavedText: string;
+      draftFound: string;
+      resumeDraft: string;
       success: { title: string; text: string; reference: string; nextSteps: string[]; download: string; track: string };
     };
   };
@@ -181,6 +187,9 @@ export type DemoContent = {
     categories: string[];
   };
   errors: {
+    /** Shown for links that exist in the demo's navigation but have no page. */
+    demoStubTitle: string;
+    demoStubText: string;
     notFoundTitle: string;
     notFoundText: string;
     serverTitle: string;

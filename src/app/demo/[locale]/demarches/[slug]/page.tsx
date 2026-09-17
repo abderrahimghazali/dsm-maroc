@@ -15,6 +15,7 @@ import { ArrowForward, CircleCheck, Clock, PhoneCall, ShieldCheck, TriangleAlert
 import { ui } from "@/dsm/i18n";
 import { demoHref, demoLocales, getDemoContent, isDemoLocale } from "@/content/demo";
 import { ProcedureForm } from "./procedure-form";
+import { DemoStub } from "../../demo-stub";
 
 export async function generateStaticParams() {
   const fr = await getDemoContent("fr");
@@ -26,7 +27,7 @@ export default async function ProcedurePage({ params }: { params: Promise<{ loca
   if (!isDemoLocale(locale)) notFound();
   const c = await getDemoContent(locale);
   const p = c.procedure;
-  if (slug !== p.slug) notFound();
+  if (slug !== p.slug) return <DemoStub locale={locale} />;
   const t = ui[locale];
   const href = (x: string) => demoHref(locale, x);
 

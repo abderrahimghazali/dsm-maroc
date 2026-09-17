@@ -85,13 +85,15 @@ export default function Accessibility() {
           <Badge tone="success" dot>
             WCAG 2.2 — Niveau AA
           </Badge>
+          <Badge tone="warning">Audit externe : à venir</Badge>
           <Badge tone="outline">Cadre réglementaire national</Badge>
           <Badge tone="outline">Normes internationales</Badge>
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink-muted">
-          Les administrations qui construisent leurs services numériques avec DSM héritent d&apos;un socle conforme aux exigences
-          WCAG 2.2 AA. Cette conformité technique du système ne dispense pas chaque équipe de vérifier son propre contenu et ses
-          propres parcours : voir la section « Ce que les équipes doivent encore faire ».
+          Les administrations qui construisent leurs services numériques avec DSM héritent d&apos;un socle conçu pour les exigences
+          WCAG 2.2 AA : jetons de contraste mesurés (≥ 4,5:1 pour tout texte sur son fond prévu), primitives accessibles, clavier et
+          lecteurs d&apos;écran pris en charge. Aucun audit externe du système n&apos;a encore été réalisé, et cette base technique ne
+          dispense pas chaque équipe de vérifier son propre contenu et ses propres parcours : voir « Ce que les équipes doivent encore faire ».
         </p>
       </Section>
 

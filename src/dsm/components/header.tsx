@@ -48,7 +48,7 @@ export function SkipLinks({ links }: { links?: { label: string; href: string }[]
     { label: t.skipToFooter, href: "#pied-de-page" },
   ];
   return (
-    <nav aria-label="Accès rapide" className="dsm-container">
+    <nav aria-label={t.quickAccess} className="dsm-container">
       <ul className="flex gap-2">
         {items.map((l) => (
           <li key={l.label}>
@@ -140,7 +140,7 @@ export function Header({
 
         {service && (
           <div className="hidden min-w-0 flex-1 border-s border-line ps-5 @2xl/header:block">
-            <Link href={service.href ?? homeHref} className="block truncate text-lg font-semibold tracking-tight text-ink no-underline">
+            <Link href={service.href ?? homeHref} className="line-clamp-2 text-lg font-semibold leading-tight tracking-tight text-ink no-underline">
               {service.title}
             </Link>
             {service.tagline && <p className="truncate text-sm text-ink-muted">{service.tagline}</p>}
@@ -268,7 +268,7 @@ export function Header({
 
       {/* Main navigation */}
       {nav.length > 0 && (
-        <NavigationMenu.Root id="navigation" aria-label="Navigation principale" className="hidden border-b border-line @4xl/header:block">
+        <NavigationMenu.Root id="navigation" aria-label={t.mainNav} className="hidden border-b border-line @4xl/header:block">
           <div className="dsm-container">
             <NavigationMenu.List className="relative -ms-3.5 flex items-center">
               {nav.map((item) => (

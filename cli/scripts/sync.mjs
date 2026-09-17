@@ -22,7 +22,11 @@ const end = css.indexOf("/* Shiki dual themes */");
 writeFileSync(
   join(out, "dsm.css"),
   `/* DSM — Système de Design du Maroc — foundations.\n   Import this file right after \`@import "tailwindcss";\` in your globals.css. */\n\n` +
-    css.slice(start, end === -1 ? undefined : end).trimEnd() +
+    css
+      .slice(start, end === -1 ? undefined : end)
+      // The docs app resets Tailwind's palette to enforce tokens-only colours; an adopting app keeps its own.
+      .replace(/^\s*--color-\*: initial;\s*\n/m, "  /* Add `--color-*: initial;` here to disallow Tailwind's default palette (tokens-only mode). */\n")
+      .trimEnd() +
     "\n",
 );
 
