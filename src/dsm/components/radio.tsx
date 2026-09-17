@@ -55,7 +55,7 @@ export function RadioOption({ label, hint, variant = "default", className, disab
   return (
     <label
       htmlFor={id}
-      className={cn("inline-flex cursor-pointer items-start gap-2.5 has-[[data-disabled]]:cursor-not-allowed has-[[data-disabled]]:opacity-50", className)}
+      className={cn("inline-flex align-top cursor-pointer items-start gap-2.5 has-[[data-disabled]]:cursor-not-allowed has-[[data-disabled]]:opacity-50", className)}
     >
       {dot}
       <span className="flex flex-col gap-0.5 text-sm leading-5 text-ink">

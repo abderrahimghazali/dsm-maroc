@@ -49,7 +49,7 @@ export function Switch({ label, hint, size = "md", labelPosition = "end", classN
     <label
       htmlFor={id}
       className={cn(
-        "inline-flex cursor-pointer items-center gap-2.5 has-[[data-disabled]]:cursor-not-allowed has-[[data-disabled]]:opacity-50",
+        "inline-flex align-top cursor-pointer items-center gap-2.5 has-[[data-disabled]]:cursor-not-allowed has-[[data-disabled]]:opacity-50",
         labelPosition === "start" && "flex-row-reverse justify-end",
       )}
     >

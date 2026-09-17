@@ -44,7 +44,7 @@ export function Checkbox({ label, hint, size = "md", className, indeterminate, i
   if (!label) return box;
 
   return (
-    <label htmlFor={id} className="inline-flex cursor-pointer items-start gap-2.5 has-[[data-disabled]]:cursor-not-allowed has-[[data-disabled]]:opacity-50">
+    <label htmlFor={id} className="inline-flex align-top cursor-pointer items-start gap-2.5 has-[[data-disabled]]:cursor-not-allowed has-[[data-disabled]]:opacity-50">
       {box}
       <span className="flex flex-col gap-0.5 text-sm leading-5 text-ink">
         <span>{label}</span>
