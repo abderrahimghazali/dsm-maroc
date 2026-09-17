@@ -10,7 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://dsm-maroc.vercel.app">Live docs</a> · <a href="#getting-started">Getting started</a> · <a href="#whats-inside">What's inside</a> · <a href="#structure">Structure</a> · <a href="DESIGN.md">Design spec</a> · <a href="#author">Author</a>
+  <a href="https://www.npmjs.com/package/dsm-maroc"><img src="https://img.shields.io/npm/v/dsm-maroc?label=npx%20dsm-maroc&color=0B6B3F" alt="npm version" /></a>
+</p>
+
+<p align="center">
+  <a href="https://dsm-maroc.vercel.app">Live docs</a> · <a href="https://www.npmjs.com/package/dsm-maroc">npm</a> · <a href="#getting-started">Getting started</a> · <a href="#whats-inside">What's inside</a> · <a href="#structure">Structure</a> · <a href="DESIGN.md">Design spec</a> · <a href="#author">Author</a>
 </p>
 
 ---

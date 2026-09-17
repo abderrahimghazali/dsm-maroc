@@ -39,6 +39,7 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
               { label: "Accessibilité", href: "/accessibilite" },
               { label: "Langues & RTL", href: "/fondations/langues" },
               { label: "Journal des versions", href: "/prise-en-main#versions" },
+              { label: "Paquet npm dsm-maroc", href: "https://www.npmjs.com/package/dsm-maroc" },
             ],
           },
         ]}
@@ -82,6 +83,10 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
             {" · "}
             <a href={siteConfig.repo} rel="noopener" target="_blank" className="hover:text-ink">
               Code source
+            </a>
+            {" · "}
+            <a href="https://www.npmjs.com/package/dsm-maroc" rel="noopener" target="_blank" className="hover:text-ink">
+              npm
             </a>
           </>
         }

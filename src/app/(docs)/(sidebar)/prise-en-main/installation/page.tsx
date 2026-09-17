@@ -52,6 +52,14 @@ export default function Installation() {
           <code className="font-mono text-xs">public/patterns/</code>, puis installe Base UI, CVA, clsx, tailwind-merge et Lucide. Il ne touche jamais
           à un fichier existant sans <code className="font-mono text-xs">--overwrite</code>. Il reste ensuite à brancher les fournisseurs (étape 3).
         </Alert>
+        <p className="mt-4 text-sm text-ink-muted">
+          Le paquet est publié sur npm :{" "}
+          <a href="https://www.npmjs.com/package/dsm-maroc" target="_blank" rel="noopener">
+            npmjs.com/package/dsm-maroc
+          </a>
+          . Chaque version embarque un instantané des sources ; pour mettre à jour un composant, relancez{" "}
+          <code className="font-mono text-xs">npx dsm-maroc@latest add button --overwrite</code> et relisez le diff.
+        </p>
       </Section>
 
       <Section

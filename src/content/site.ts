@@ -31,6 +31,7 @@ export const siteConfig = {
     "الخدمات العمومية الرقمية",
   ],
   repo: "https://github.com/abderrahimghazali/dsm-maroc",
+  npm: "https://www.npmjs.com/package/dsm-maroc",
   author: {
     name: "Abderrahim Ghazali",
     url: "https://abderrahimghazali.github.io/",

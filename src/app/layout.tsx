@@ -66,6 +66,8 @@ const jsonLd = {
       name: siteConfig.name,
       description: siteConfig.descriptionEn,
       codeRepository: siteConfig.repo,
+      installUrl: siteConfig.npm,
+      sameAs: [siteConfig.npm],
       programmingLanguage: ["TypeScript", "CSS"],
       runtimePlatform: "Next.js",
       url: siteConfig.url,
