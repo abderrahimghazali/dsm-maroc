@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, ButtonGroup } from "@/dsm/components/button";
 import { Badge } from "@/dsm/components/badge";
@@ -54,6 +55,8 @@ const foundations = [
   { icon: Languages, title: "Langues & RTL", text: "Direction, locales et chaînes intégrées.", href: "/fondations/langues" },
   { icon: Layers, title: "Iconographie", text: "Jeu d'icônes et glyphes directionnels.", href: "/fondations/iconographie" },
 ];
+
+export const metadata: Metadata = { alternates: { canonical: "/" }, openGraph: { url: "/" } };
 
 export default function Home() {
   const components = getAllComponents();

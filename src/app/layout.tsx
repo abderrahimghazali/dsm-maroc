@@ -16,13 +16,11 @@ export const metadata: Metadata = {
   creator: siteConfig.author.name,
   publisher: siteConfig.author.name,
   category: "technology",
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
     title: siteConfig.name,
     description: siteConfig.description,
-    url: "/",
     locale: "fr_MA",
     alternateLocale: ["ar_MA", "en_US"],
   },

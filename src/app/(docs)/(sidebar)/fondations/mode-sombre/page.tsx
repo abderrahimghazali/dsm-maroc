@@ -9,6 +9,8 @@ import { Card, CardBody, CardFooter, CardText, CardTitle } from "@/dsm/component
 export const metadata: Metadata = {
   title: "Mode sombre",
   description: "Le mode sombre n'est pas une feuille de style séparée : c'est le même composant, alimenté par des jetons qui changent de valeur selon l'attribut data-theme. Aucun composant DSM n'écrit de variante dark:.",
+  alternates: { canonical: "/fondations/mode-sombre" },
+  openGraph: { url: "/fondations/mode-sombre" },
 };
 
 const tokens = [

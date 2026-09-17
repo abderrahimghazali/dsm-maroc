@@ -8,6 +8,8 @@ import { cn } from "@/dsm/lib/cn";
 export const metadata: Metadata = {
   title: "Typographie",
   description: "DSM assemble quatre familles pour couvrir les trois langues officielles et le code : IBM Plex Sans pour le français et l'anglais, IBM Plex Sans Arabic pour l'arabe, Noto Sans Tifinagh pour l'amazighe, et IBM Plex Mono pour tout contenu technique. La police change automatiquement avec l'attribut lang, sans classe à ajouter côté produit.",
+  alternates: { canonical: "/fondations/typographie" },
+  openGraph: { url: "/fondations/typographie" },
 };
 
 type Specimen = {

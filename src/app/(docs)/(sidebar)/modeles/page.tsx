@@ -9,6 +9,8 @@ import { ArrowForward } from "@/dsm/icons";
 export const metadata: Metadata = {
   title: "Modèles",
   description: "Le portail national de démonstration assemble les composants DSM en six modèles de page complets, réutilisables tels quels ou comme point de départ pour un service ministériel.",
+  alternates: { canonical: "/modeles" },
+  openGraph: { url: "/modeles" },
 };
 
 type Model = {

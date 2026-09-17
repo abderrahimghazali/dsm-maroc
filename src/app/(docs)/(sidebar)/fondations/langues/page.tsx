@@ -10,6 +10,8 @@ import { TrilingualSample } from "./rtl-demo";
 export const metadata: Metadata = {
   title: "Langues & RTL",
   description: "DSM sert quatre locales — arabe, amazighe (tifinaghe), français, anglais — dont deux directions d'écriture. Chaque composant s'adapte via un fournisseur de contexte et des dictionnaires, sans jamais coder de texte en dur.",
+  alternates: { canonical: "/fondations/langues" },
+  openGraph: { url: "/fondations/langues" },
 };
 
 const locales: Locale[] = ["fr", "ar", "zgh", "en"];

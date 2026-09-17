@@ -7,6 +7,8 @@ import { Badge } from "@/dsm/components/badge";
 export const metadata: Metadata = {
   title: "Accessibilité",
   description: "L'accessibilité n'est pas une option ajoutée en fin de projet : c'est une propriété du système, vérifiée à chaque composant. DSM vise la conformité WCAG 2.2 niveau AA, dans le cadre réglementaire national et des normes internationales applicables aux services publics numériques.",
+  alternates: { canonical: "/accessibilite" },
+  openGraph: { url: "/accessibilite" },
 };
 
 const guarantees = [

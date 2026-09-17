@@ -9,6 +9,8 @@ import { ArrowForward } from "@/dsm/icons";
 export const metadata: Metadata = {
   title: "Prise en main",
   description: "DSM (Système de Design du Maroc) est un système de design complet pour les services publics numériques marocains : des fondations (couleurs, typographie, espacements), une bibliothèque de composants React accessibles et trilingues, et des modèles de pages prêts à assembler.",
+  alternates: { canonical: "/prise-en-main" },
+  openGraph: { url: "/prise-en-main" },
 };
 
 export default function GettingStarted() {

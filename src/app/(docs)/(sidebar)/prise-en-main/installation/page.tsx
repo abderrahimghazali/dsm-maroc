@@ -6,6 +6,8 @@ import { Alert } from "@/dsm/components/alert";
 export const metadata: Metadata = {
   title: "Installation",
   description: "Une commande installe DSM dans votre application Next.js : les sources sont copiées dans votre projet, puis évoluent comme le reste de votre code.",
+  alternates: { canonical: "/prise-en-main/installation" },
+  openGraph: { url: "/prise-en-main/installation" },
 };
 
 const structure = `src/

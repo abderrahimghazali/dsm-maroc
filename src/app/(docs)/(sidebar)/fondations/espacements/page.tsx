@@ -7,6 +7,8 @@ import { cn } from "@/dsm/lib/cn";
 export const metadata: Metadata = {
   title: "Espacements & grille",
   description: "Une échelle unique en base 4px pour tous les espacements, un conteneur central de 78rem, et une grille de douze colonnes pour composer les pages. Les mêmes valeurs gouvernent le rythme vertical des sections, les rayons et les ombres.",
+  alternates: { canonical: "/fondations/espacements" },
+  openGraph: { url: "/fondations/espacements" },
 };
 
 type Step = { token: string; rem: string; px: string };

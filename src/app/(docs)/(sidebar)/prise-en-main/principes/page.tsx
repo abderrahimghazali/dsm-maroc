@@ -6,6 +6,8 @@ import { Check, X } from "@/dsm/icons";
 export const metadata: Metadata = {
   title: "Principes",
   description: "Six principes gouvernent chaque décision de conception dans DSM, des jetons de couleur au dernier composant. Ils servent de test simple face à un choix incertain : est-ce que ça sert la clarté, les trois langues, l'accessibilité, la chaleur institutionnelle, la sobriété du mouvement et l'ouverture du système ?",
+  alternates: { canonical: "/prise-en-main/principes" },
+  openGraph: { url: "/prise-en-main/principes" },
 };
 
 type Principle = {

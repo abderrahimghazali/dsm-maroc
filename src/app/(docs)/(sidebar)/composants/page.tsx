@@ -8,6 +8,8 @@ import { ArrowForward } from "@/dsm/icons";
 export const metadata: Metadata = {
   title: "Composants",
   description: "Bibliothèque de composants React accessibles, trilingues et compatibles RTL : boutons, formulaires, navigation, contenu, retours et superpositions, prêts à composer des services publics numériques marocains.",
+  alternates: { canonical: "/composants" },
+  openGraph: { url: "/composants" },
 };
 
 const order: ComponentCategory[] = ["mise-en-page", "actions", "formulaires", "navigation", "contenu", "retours", "overlays"];

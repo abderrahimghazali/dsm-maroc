@@ -7,6 +7,8 @@ import { DurationRaceDemo, EasingDemo, EnterDemo, InteractionDemo, MotionPlaygro
 export const metadata: Metadata = {
   title: "Mouvement",
   description: "Le mouvement dans DSM confirme une action, jamais ne décore. Trois durées, deux courbes d'accélération, et une règle simple : rien ne dépasse 400 millisecondes.",
+  alternates: { canonical: "/fondations/mouvement" },
+  openGraph: { url: "/fondations/mouvement" },
 };
 
 const componentMap = [
