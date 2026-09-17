@@ -5,7 +5,7 @@ import { Alert } from "@/dsm/components/alert";
 
 export const metadata: Metadata = {
   title: "Installation",
-  description: "DSM n'est pas un paquet npm : c'est un dossier de sources à copier dans votre application Next.js, puis à faire évoluer comme le reste de votre code.",
+  description: "Une commande installe DSM dans votre application Next.js : les sources sont copiées dans votre projet, puis évoluent comme le reste de votre code.",
 };
 
 const structure = `src/
@@ -33,8 +33,26 @@ export default function Installation() {
         eyebrow="Prise en main"
         title="Installation"
         titleAr="التثبيت"
-        description="DSM n'est pas un paquet npm : c'est un dossier de sources à copier dans votre application Next.js, puis à faire évoluer comme le reste de votre code."
+        description="Une commande installe DSM dans votre application Next.js : les sources sont copiées dans votre projet, puis évoluent comme le reste de votre code."
       />
+
+      <Section
+        id="cli"
+        title="Installation en une commande"
+        description="La CLI dsm-maroc détecte votre projet (dossier src, gestionnaire de paquets, alias @/), copie les sources et installe les dépendances."
+      >
+        <CodeBlock
+          lang="bash"
+          title="terminal"
+          code={`npx dsm-maroc@latest init          # fondations, composants, polices et motifs\nnpx dsm-maroc@latest add button    # ou un seul composant et ce qu'il importe\nnpx dsm-maroc@latest list          # tous les composants disponibles`}
+        />
+        <Alert tone="info" title="Ce que fait init" className="mt-4">
+          Copie <code className="font-mono text-xs">src/dsm/</code>, ajoute <code className="font-mono text-xs">app/dsm.css</code> importé depuis votre{" "}
+          <code className="font-mono text-xs">globals.css</code>, dépose <code className="font-mono text-xs">app/fonts.ts</code> et{" "}
+          <code className="font-mono text-xs">public/patterns/</code>, puis installe Base UI, CVA, clsx, tailwind-merge et Lucide. Il ne touche jamais
+          à un fichier existant sans <code className="font-mono text-xs">--overwrite</code>. Il reste ensuite à brancher les fournisseurs (étape 3).
+        </Alert>
+      </Section>
 
       <Section
         id="prerequis"
@@ -55,7 +73,7 @@ export default function Installation() {
         </ul>
       </Section>
 
-      <Section id="dependances" title="1. Installer les dépendances">
+      <Section id="dependances" title="Installation manuelle — 1. Installer les dépendances" description="Si vous préférez copier les sources vous-même, les trois étapes suivantes reproduisent ce que fait la CLI.">
         <CodeBlock
           lang="bash"
           title="terminal"

@@ -272,9 +272,9 @@ export default function Home() {
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance">Trois étapes, aucun verrou.</h2>
             <ol className="mt-8 space-y-6">
               {[
-                ["Installez les dépendances", "Base UI, CVA, clsx, tailwind-merge et Lucide — rien d'autre."],
-                ["Copiez le dossier src/dsm", "Composants, jetons, icônes et dictionnaires vous appartiennent."],
-                ["Importez les fondations", "Ajoutez globals.css et enveloppez votre application dans les fournisseurs."],
+                ["Lancez npx dsm-maroc@latest init", "La CLI copie les sources dans votre projet et installe Base UI, CVA, clsx, tailwind-merge et Lucide."],
+                ["Le code vous appartient", "Composants, jetons, icônes et dictionnaires vivent dans src/dsm, à faire évoluer comme le reste."],
+                ["Branchez les fournisseurs", "Polices, ThemeProvider et LocaleProvider dans app/layout.tsx — le snippet est affiché en fin d'installation."],
               ].map(([title, text], i) => (
                 <li key={title} className="flex gap-4">
                   <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-semibold text-ink-inverse">{i + 1}</span>
@@ -287,7 +287,7 @@ export default function Home() {
             </ol>
           </div>
           <div className="space-y-4">
-            <CodeBlock lang="bash" title="terminal" code={`pnpm add @base-ui/react class-variance-authority clsx tailwind-merge lucide-react\ncp -r dsm/src/dsm ./src/dsm`} />
+            <CodeBlock lang="bash" title="terminal" code={`npx dsm-maroc@latest init`} />
             <CodeBlock
               lang="tsx"
               title="app/layout.tsx"

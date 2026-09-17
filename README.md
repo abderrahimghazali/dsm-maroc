@@ -42,6 +42,13 @@ French, with no product-side code.
 ## Getting started
 
 ```bash
+npx dsm-maroc@latest init          # copies src/dsm, dsm.css, fonts and patterns; installs the deps
+npx dsm-maroc@latest add button    # or one component at a time
+```
+
+Then wire the providers in `app/layout.tsx` (the CLI prints the snippet). Manual route:
+
+```bash
 pnpm install
 pnpm dev
 ```
