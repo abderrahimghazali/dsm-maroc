@@ -66,6 +66,8 @@ export type DemoContent = {
     /** Persistent strip telling visitors this is an independent demonstration, not a government site. */
     demoNotice: string;
     demoNoticeLink: string;
+    /** Short label appended to page titles ("Démo DSM"). */
+    demoLabel: string;
   };
   nav: DemoNavItem[];
   common: {

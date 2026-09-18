@@ -10,6 +10,7 @@ const content: DemoContent = {
     officialBanner: "Un site officiel du Royaume du Maroc",
     demoNotice: "Démonstration indépendante : ce portail fictif illustre le système de design DSM. Ce n'est pas un site officiel et aucune donnée n'est transmise.",
     demoNoticeLink: "Découvrir DSM",
+    demoLabel: "Démo DSM",
   },
   nav: [
     { label: "Accueil", href: "/" },

@@ -10,6 +10,7 @@ const content: DemoContent = {
     officialBanner: "موقع رسمي للمملكة المغربية",
     demoNotice: "عرض توضيحي مستقل: هذه البوابة الافتراضية تُظهر نظام التصميم DSM. ليست موقعًا رسميًا ولا تُرسَل أي بيانات.",
     demoNoticeLink: "اكتشف DSM",
+    demoLabel: "عرض DSM",
   },
   nav: [
     { label: "الرئيسية", href: "/" },

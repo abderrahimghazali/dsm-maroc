@@ -24,7 +24,7 @@
   --dsm-ink-subtle: #6f6a62; /* ≥ 4.6:1 on canvas, surface and surface-muted */
   --dsm-ink-inverse: #faf7f1;
   --dsm-line: #e4ddd2;
-  --dsm-line-strong: #c6bdaf;
+  --dsm-line-strong: #8f867b; /* field outlines: ≥ 3:1 on surface, canvas and surface-muted (WCAG 1.4.11) */
 
   /* Brand hues */
   --dsm-rouge: #b5202c;
@@ -117,7 +117,7 @@
   --dsm-ink-subtle: #938c82; /* ≥ 4.8:1 on every dark surface */
   --dsm-ink-inverse: #1c1a17;
   --dsm-line: #2e2b27;
-  --dsm-line-strong: #47433d;
+  --dsm-line-strong: #756f67; /* ≥ 3:1 on every dark surface */
 
   --dsm-rouge: #e4606a;
   --dsm-rouge-hover: #ec7a83;

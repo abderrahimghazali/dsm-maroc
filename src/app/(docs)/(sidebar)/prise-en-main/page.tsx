@@ -54,9 +54,9 @@ export default function GettingStarted() {
         </ul>
       </Section>
 
-      <Section id="installation" title="Installation rapide" description="DSM se copie dans votre projet Next.js (App Router) ou tout projet React + Tailwind v4.">
+      <Section id="installation" title="Installation rapide" description="DSM n'est pas une bibliothèque à importer mais des sources copiées dans votre projet Next.js (App Router) et Tailwind v4 : vous possédez le code, et vous décidez quand reprendre une mise à jour. La CLI fait la copie.">
         <div className="space-y-4">
-          <CodeBlock lang="bash" title="terminal" code={`pnpm add @base-ui/react class-variance-authority clsx tailwind-merge lucide-react\ncp -r dsm/src/dsm ./src/dsm\ncp dsm/src/app/globals.css ./src/app/globals.css\ncp -r dsm/public/patterns ./public/patterns`} />
+          <CodeBlock lang="bash" title="terminal" code={`npx dsm-maroc@latest init   # copie src/dsm, dsm.css, fonts.ts et public/patterns, installe les 5 dépendances`} />
           <CodeBlock
             lang="tsx"
             title="src/app/layout.tsx"

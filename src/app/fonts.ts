@@ -18,6 +18,7 @@ export const plexArabic = IBM_Plex_Sans_Arabic({
   weight: ["400", "500", "600", "700"],
   variable: "--font-plex-arabic",
   display: "swap",
+  preload: false, // loaded on demand, only pages showing this script pay for it
 });
 
 // Tifinagh — Noto Sans Tifinagh (Tamazight)
@@ -26,6 +27,7 @@ export const tifinagh = Noto_Sans_Tifinagh({
   weight: "400",
   variable: "--font-tifinagh",
   display: "swap",
+  preload: false, // loaded on demand, only pages showing this script pay for it
 });
 
 export const plexMono = IBM_Plex_Mono({
@@ -33,6 +35,7 @@ export const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
   variable: "--font-plex-mono",
   display: "swap",
+  preload: false, // loaded on demand, only pages showing this script pay for it
 });
 
 export const fontVariables = [

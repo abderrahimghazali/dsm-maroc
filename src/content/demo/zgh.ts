@@ -11,6 +11,7 @@ const content: DemoContent = {
     officialBanner: "ⴰⵙⵉⵜ ⵓⵏⵚⵉⴱ ⵏ ⵜⴳⵍⴷⵉⵜ ⵏ ⵍⵎⵖⵔⵉⴱ",
     demoNotice: "ⴰⵙⴽⴰⵏ ⴰⵎⵙⵉⵎⴰⵏ: ⵜⴰⴱⴱⵓⵔⵜ ⴰⴷ ⵜⴰⵎⵙⴽⴰⵔⵜ ⵜⵙⴽⴰⵏ ⴰⵏⴰⴳⵔⴰⵡ ⵏ ⵓⵙⴳⴳⴰ DSM. ⵓⵔ ⵉⴳⵉ ⴰⵙⵉⵜ ⵓⵏⵚⵉⴱ, ⵓⵔ ⵜⵜⵓⵣⵏⴻⵏ ⵉⵙⴼⴽⴰ.",
     demoNoticeLink: "ⵙⵙⵏ DSM",
+    demoLabel: "ⴰⵙⴽⴰⵏ DSM",
   },
   nav: [
     { label: "ⵜⴰⵙⵏⴰ ⵜⴰⵎⵣⵡⴰⵔⵓⵜ", href: "/" },

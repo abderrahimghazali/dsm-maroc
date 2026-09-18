@@ -32,7 +32,7 @@ export function Emblem({ className, inverse }: { className?: string; inverse?: b
         d="M24 9 L32.82 36.14 L9.73 19.36 L38.27 19.36 L15.18 36.14 Z"
         fill="none"
         stroke={inverse ? "var(--dsm-surface-inverse)" : "#0B6B3F"}
-        strokeWidth="2.4"
+        strokeWidth="3"
         strokeLinejoin="miter"
       />
     </svg>

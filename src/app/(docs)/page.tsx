@@ -41,7 +41,7 @@ const principles = [
   {
     icon: Component,
     title: "Composable et ouvert",
-    text: "Des composants React copiables, des jetons CSS lisibles, aucune dépendance opaque. Vous possédez le code.",
+    text: "Modèle « copié dans votre projet », comme shadcn : les sources vivent chez vous, les mises à jour sont manuelles. Cinq dépendances ouvertes (Base UI, CVA, clsx, tailwind-merge, Lucide), rien d'autre.",
   },
 ];
 

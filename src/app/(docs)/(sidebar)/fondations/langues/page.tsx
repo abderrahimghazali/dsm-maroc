@@ -6,10 +6,11 @@ import { Alert } from "@/dsm/components/alert";
 import { kingdomWordmark, localeMeta, ui, type Locale } from "@/dsm/i18n";
 import { cn } from "@/dsm/lib/cn";
 import { TrilingualSample } from "./rtl-demo";
+import { formatDate, formatHijriDate, formatMoney, formatNumber, formatPhone } from "@/dsm/lib/format";
 
 export const metadata: Metadata = {
   title: "Langues & RTL",
-  description: "DSM sert quatre locales — arabe, amazighe (tifinaghe), français, anglais — dont deux directions d'écriture. Chaque composant s'adapte via un fournisseur de contexte et des dictionnaires, sans jamais coder de texte en dur.",
+  description: "DSM est trilingue — arabe, amazighe (tifinaghe), français — avec deux directions d'écriture. L'anglais existe comme quatrième locale technique du dictionnaire des composants, sans démonstration. Chaque composant s'adapte via un fournisseur de contexte et des dictionnaires, sans jamais coder de texte en dur.",
   alternates: { canonical: "/fondations/langues" },
   openGraph: { url: "/fondations/langues" },
 };
@@ -36,7 +37,7 @@ export default function LanguagesRtl() {
         eyebrow="Fondations"
         title="Langues & RTL"
         titleAr="اللغات والاتجاه من اليمين إلى اليسار"
-        description="DSM sert quatre locales — arabe, amazighe (tifinaghe), français, anglais — dont deux directions d'écriture. Chaque composant s'adapte via un fournisseur de contexte et des dictionnaires, sans jamais coder de texte en dur."
+        description="DSM est trilingue — arabe, amazighe (tifinaghe), français — avec deux directions d'écriture. L'anglais existe comme quatrième locale technique du dictionnaire des composants, sans démonstration. Chaque composant s'adapte via un fournisseur de contexte et des dictionnaires, sans jamais coder de texte en dur."
       />
 
       <Section
@@ -120,6 +121,62 @@ export default function LanguagesRtl() {
       </Section>
 
       <Section
+        id="chiffres"
+        title="Chiffres, dates et montants"
+        description="Les conventions marocaines, appliquées par les fonctions de @/dsm/lib/format : chiffres occidentaux dans les trois langues, virgule décimale, dirham en MAD ou د.م., dates grégoriennes avec l'hégirien en complément."
+      >
+        <div className="overflow-x-auto rounded-lg border border-line">
+          <table className="w-full text-sm">
+            <thead className="bg-surface-muted text-xs uppercase tracking-wide text-ink-subtle">
+              <tr>
+                <th className="px-4 py-2.5 text-start font-semibold">Locale</th>
+                <th className="px-4 py-2.5 text-start font-semibold">Nombre</th>
+                <th className="px-4 py-2.5 text-start font-semibold">Montant</th>
+                <th className="px-4 py-2.5 text-start font-semibold">Date</th>
+                <th className="px-4 py-2.5 text-start font-semibold">Hégirien (indicatif)</th>
+              </tr>
+            </thead>
+            <tbody className="bg-surface">
+              {(["fr", "ar", "zgh"] as const).map((l) => {
+                const m = localeMeta[l];
+                const sample = new Date(2026, 8, 17);
+                return (
+                  <tr key={l} className="border-t border-line">
+                    <td className="whitespace-nowrap px-4 py-2.5 font-mono text-[0.8125rem]">{l}</td>
+                    <td className={cn(m.fontClass, "whitespace-nowrap px-4 py-2.5 tabular-nums")} lang={m.code} dir={m.dir}>{formatNumber(1234567.89, l)}</td>
+                    <td className={cn(m.fontClass, "whitespace-nowrap px-4 py-2.5 tabular-nums")} lang={m.code} dir={m.dir}>{formatMoney(1250.5, l)}</td>
+                    <td className={cn(m.fontClass, "whitespace-nowrap px-4 py-2.5")} lang={m.code} dir={m.dir}>{formatDate(sample, l)}</td>
+                    <td className={cn(m.fontClass, "whitespace-nowrap px-4 py-2.5")} lang={m.code} dir={m.dir}>{formatHijriDate(sample, l)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+          {[
+            ["Chiffres occidentaux, partout", "En arabe aussi : c'est l'usage de l'administration, de la presse et de l'école au Maroc. Ne forcez jamais les chiffres indo-arabes (nu-arab) ; formatNumber impose nu-latn."],
+            ["Espace fine et virgule", "Milliers séparés par une espace fine insécable, décimales par une virgule, dans les trois langues : « 1 234 567,89 ». Intl seul donnerait un point des milliers en fr-MA."],
+            ["Dirham : MAD ou د.م.", "Code ISO après le montant en français et en amazighe (« 1 250,50 MAD »), symbole د.م. en arabe. Jamais « DH », « Dhs » ni « dh » dans une interface officielle. Deux décimales pour un prix, aucune pour un chiffre-clé."],
+            ["Dates grégoriennes en toutes lettres", "Format long dans la langue de l'interface (17 septembre 2026, 17 شتنبر 2026, 17 ⵛⵓⵜⴰⵏⴱⵉⵔ 2026) ; JJ/MM/AAAA uniquement dans les champs de saisie (DateInput)."],
+            ["Hégirien en complément, jamais seul", "formatHijriDate utilise le calendrier islamic-umalqura. Le Maroc suit l'observation lunaire locale : la date calculée peut différer d'un jour, présentez-la comme indicative — « 17 septembre 2026 (6 rabia ath-thani 1448) »."],
+            ["Téléphone et heures", `National « ${formatPhone("0612345678")} », international « ${formatPhone("0612345678", "international")} » (IdentityInput, formatPhone). Heures sur 24 h : « 8 h 30 – 16 h 30 ».`],
+          ].map(([t, d]) => (
+            <li key={t} className="rounded-lg border border-line bg-surface p-5">
+              <p className="font-semibold">{t}</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{d}</p>
+            </li>
+          ))}
+        </ul>
+        <CodeBlock
+          className="mt-6"
+          lang="tsx"
+          title="src/dsm/lib/format.ts"
+          code={`import { formatDate, formatDualDate, formatMoney, formatNumber, formatPhone } from "@/dsm/lib/format";\n\nformatNumber(1234567.89, "ar"); // "1 234 567,89"\nformatMoney(1250.5, "fr");      // "1 250,50 MAD"\nformatMoney(1250.5, "ar");      // "1 250,50 د.م."\nformatDate(new Date(), "zgh");  // "17 ⵛⵓⵜⴰⵏⴱⵉⵔ 2026"\nformatDualDate(new Date(), "fr"); // "17 septembre 2026 (6 rabia ath-thani 1448)"\nformatPhone("+212612345678");   // "06 12 34 56 78"`}
+        />
+      </Section>
+
+      <Section
         id="regles-rtl"
         title="Règles RTL"
         description="Un composant DSM ne teste jamais dir === 'rtl' : il s'exprime en propriétés logiques et laisse le navigateur inverser la mise en page."
@@ -194,6 +251,11 @@ export default function LanguagesRtl() {
         title="Recommandations pour le tifinaghe"
         description="Noto Sans Tifinagh n'est chargée qu'en une seule graisse : la hiérarchie visuelle passe par la taille et l'espacement, jamais par le gras."
       >
+        <Alert tone="warning" title="Traductions amazighes : relecture en attente" className="mb-4">
+          Les chaînes en tamazight du dictionnaire, de la démonstration et des noms de régions ont été rédigées sans relecture par un
+          locuteur natif. Faites-les valider (IRCAM ou traducteur assermenté) avant toute mise en production, et signalez les corrections
+          sur le dépôt.
+        </Alert>
         <ul className="grid gap-4 sm:grid-cols-2">
           {[
             ["Une seule graisse", "Noto Sans Tifinagh est chargée en poids 400 uniquement (font-tifinagh) : n'appliquez jamais font-bold à du texte tifinaghe, il n'a aucun effet et casse la cohérence."],
