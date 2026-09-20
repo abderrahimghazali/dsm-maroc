@@ -5,7 +5,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dsm-maroc.vercel.app",
   /** ≤ 155 characters: it is the search snippet of the home page. */
   description:
-    "Système de design des services publics marocains : composants, fondations et modèles trilingues (ar, zgh, fr). The Moroccan design system for public services.",
+    "Système de design des services publics marocains : composants, fondations et modèles trilingues. The Moroccan design system for public services.",
   /** Longer French description for JSON-LD, the manifest and social cards. */
   descriptionLong:
     "Le système de design pour les services publics numériques marocains : fondations, composants React accessibles et modèles de pages, trilingues (arabe, amazighe, français) et RTL natifs.",

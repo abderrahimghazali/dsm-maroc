@@ -32,7 +32,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 function List({ items, icon: Icon, tone }: { items: string[]; icon: typeof CircleCheck; tone: string }) {
   return (
     <ul className="space-y-2.5 text-sm leading-relaxed text-ink-muted">
-      <BreadcrumbJsonLd trail={[{ name: "Composants", path: "/composants" }, { name: meta.title }]} />
       {items.map((it) => (
         <li key={it} className="flex gap-2.5">
           <Icon className={`mt-0.5 size-4 shrink-0 ${tone}`} aria-hidden />
@@ -52,6 +51,7 @@ export default async function ComponentPage({ params }: { params: Promise<{ slug
 
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Composants", path: "/composants" }, { name: meta.title }]} />
       <PageHeader
         eyebrow={
           <span className="inline-flex items-center gap-2">
