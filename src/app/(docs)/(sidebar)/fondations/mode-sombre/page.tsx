@@ -5,10 +5,11 @@ import { Alert } from "@/dsm/components/alert";
 import { Badge } from "@/dsm/components/badge";
 import { Button } from "@/dsm/components/button";
 import { Card, CardBody, CardFooter, CardText, CardTitle } from "@/dsm/components/card";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Mode sombre",
-  description: "Le mode sombre n'est pas une feuille de style séparée : c'est le même composant, alimenté par des jetons qui changent de valeur selon l'attribut data-theme. Aucun composant DSM n'écrit de variante dark:.",
+  description: "Le mode sombre n'est pas une feuille de style séparée : c'est le même composant, alimenté par des jetons qui changent de valeur selon l'attribut.",
   alternates: { canonical: "/fondations/mode-sombre" },
   openGraph: { url: "/fondations/mode-sombre" },
 };
@@ -29,6 +30,7 @@ const tokens = [
 function DemoBlock() {
   return (
     <Card className="mx-auto max-w-sm">
+      <BreadcrumbJsonLd trail={[{ name: "Mode sombre" }]} />
       <CardBody>
         <div className="flex items-center justify-between">
           <Badge tone="success" dot>

@@ -6,10 +6,11 @@ import { Badge } from "@/dsm/components/badge";
 import { BlockMark, Emblem } from "@/dsm/components/block-mark";
 import { Landmark } from "@/dsm/icons";
 import { cn } from "@/dsm/lib/cn";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Motifs & identité",
-  description: "La marque nationale, le filet tricolore et la tessellation en étoile à huit branches (khatam) forment le vocabulaire visuel de DSM. Ce sont des signatures à utiliser avec retenue : elles identifient un service officiel sans jamais concurrencer son contenu.",
+  description: "La marque nationale, le filet tricolore et la tessellation en étoile à huit branches (khatam) forment le vocabulaire visuel de DSM.",
   alternates: { canonical: "/fondations/motifs" },
   openGraph: { url: "/fondations/motifs" },
 };
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function Patterns() {
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Motifs & identité" }]} />
       <PageHeader
         eyebrow="Fondations"
         title="Motifs & identité"

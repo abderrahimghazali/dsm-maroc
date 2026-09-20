@@ -7,10 +7,11 @@ import { kingdomWordmark, localeMeta, ui, type Locale } from "@/dsm/i18n";
 import { cn } from "@/dsm/lib/cn";
 import { TrilingualSample } from "./rtl-demo";
 import { formatDate, formatHijriDate, formatMoney, formatNumber, formatPhone } from "@/dsm/lib/format";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Langues & RTL",
-  description: "DSM est trilingue — arabe, amazighe (tifinaghe), français — avec deux directions d'écriture. L'anglais existe comme quatrième locale technique du dictionnaire des composants, sans démonstration. Chaque composant s'adapte via un fournisseur de contexte et des dictionnaires, sans jamais coder de texte en dur.",
+  description: "DSM est trilingue — arabe, amazighe (tifinaghe), français — avec deux directions d'écriture.",
   alternates: { canonical: "/fondations/langues" },
   openGraph: { url: "/fondations/langues" },
 };
@@ -33,6 +34,7 @@ const rtlChecklist = [
 export default function LanguagesRtl() {
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Langues & RTL" }]} />
       <PageHeader
         eyebrow="Fondations"
         title="Langues & RTL"

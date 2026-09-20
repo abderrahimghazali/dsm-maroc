@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CodeBlock } from "@/components/docs/code";
 import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Installation",
@@ -31,6 +32,7 @@ public/
 export default function Installation() {
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Prise en main", path: "/prise-en-main" }, { name: "Installation" }]} />
       <PageHeader
         eyebrow="Prise en main"
         title="Installation"

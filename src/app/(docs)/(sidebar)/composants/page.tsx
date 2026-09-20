@@ -4,10 +4,11 @@ import { PageHeader } from "@/components/docs/page-header";
 import { getByCategory } from "@/content/registry";
 import { categoryLabels, type ComponentCategory } from "@/content/types";
 import { ArrowForward } from "@/dsm/icons";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Composants",
-  description: "Bibliothèque de composants React accessibles, trilingues et compatibles RTL : boutons, formulaires, navigation, contenu, retours et superpositions, prêts à composer des services publics numériques marocains.",
+  description: "Bibliothèque de composants React accessibles, trilingues et compatibles RTL",
   alternates: { canonical: "/composants" },
   openGraph: { url: "/composants" },
 };
@@ -19,6 +20,7 @@ export default function ComponentsIndex() {
   const total = Object.values(groups).reduce((n, g) => n + g.length, 0);
   return (
     <>
+      <BreadcrumbJsonLd trail={[{ name: "Composants" }]} />
       <PageHeader
         eyebrow="Composants"
         title="Bibliothèque de composants"

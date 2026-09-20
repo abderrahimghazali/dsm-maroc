@@ -3,10 +3,11 @@ import { CodeBlock } from "@/components/docs/code";
 import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { DurationRaceDemo, EasingDemo, EnterDemo, InteractionDemo, MotionPlayground } from "./motion-demo";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Mouvement",
-  description: "Le mouvement dans DSM confirme une action, jamais ne décore. Trois durées, deux courbes d'accélération, et une règle simple : rien ne dépasse 400 millisecondes.",
+  description: "Le mouvement dans DSM confirme une action, jamais ne décore. Trois durées, deux courbes d'accélération, et une règle simple",
   alternates: { canonical: "/fondations/mouvement" },
   openGraph: { url: "/fondations/mouvement" },
 };
@@ -26,6 +27,7 @@ const componentMap = [
 export default function Motion() {
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Mouvement" }]} />
       <PageHeader
         eyebrow="Fondations"
         title="Mouvement"

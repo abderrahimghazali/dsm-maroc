@@ -4,10 +4,11 @@ import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { Badge } from "@/dsm/components/badge";
 import { cn } from "@/dsm/lib/cn";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Typographie",
-  description: "DSM assemble quatre familles pour couvrir les trois langues officielles et le code : IBM Plex Sans pour le français et l'anglais, IBM Plex Sans Arabic pour l'arabe, Noto Sans Tifinagh pour l'amazighe, et IBM Plex Mono pour tout contenu technique. La police change automatiquement avec l'attribut lang, sans classe à ajouter côté produit.",
+  description: "DSM assemble quatre familles pour couvrir les trois langues officielles et le code",
   alternates: { canonical: "/fondations/typographie" },
   openGraph: { url: "/fondations/typographie" },
 };
@@ -81,6 +82,7 @@ const stacks = [
 export default function Typography() {
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Typographie" }]} />
       <PageHeader
         eyebrow="Fondations"
         title="Typographie"

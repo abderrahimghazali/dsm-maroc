@@ -3,10 +3,11 @@ import { CodeBlock } from "@/components/docs/code";
 import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { Badge } from "@/dsm/components/badge";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Accessibilité",
-  description: "L'accessibilité n'est pas une option ajoutée en fin de projet : c'est une propriété du système, vérifiée à chaque composant. DSM vise la conformité WCAG 2.2 niveau AA, dans le cadre réglementaire national et des normes internationales applicables aux services publics numériques.",
+  description: "L'accessibilité n'est pas une option ajoutée en fin de projet : c'est une propriété du système, vérifiée à chaque composant.",
   alternates: { canonical: "/accessibilite" },
   openGraph: { url: "/accessibilite" },
 };
@@ -73,6 +74,7 @@ pas de réponse satisfaisante, vous pouvez adresser une réclamation à [autorit
 export default function Accessibility() {
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Accessibilité" }]} />
       <PageHeader
         eyebrow="Accessibilité"
         title="Accessibilité"

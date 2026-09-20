@@ -7,6 +7,8 @@ import { PageHeader, Section } from "@/components/docs/page-header";
 import { PropsTable } from "@/components/docs/props-table";
 import { getAllComponents, getComponent } from "@/content/registry";
 import { categoryLabels } from "@/content/types";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
+import { seoDescription } from "@/lib/seo";
 import { Badge } from "@/dsm/components/badge";
 import { Accessibility, CircleCheck, CircleX, Languages } from "@/dsm/icons";
 
@@ -21,15 +23,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const title = entry.meta.titleEn ? `${entry.meta.title} (${entry.meta.titleEn})` : entry.meta.title;
   return {
     title,
-    description: entry.meta.description,
+    description: seoDescription(entry.meta.description),
     alternates: { canonical: `/composants/${entry.meta.slug}` },
-    openGraph: { title: `${title} · DSM`, description: entry.meta.description, url: `/composants/${entry.meta.slug}` },
+    openGraph: { title: `${title} · DSM`, description: seoDescription(entry.meta.description, 200), url: `/composants/${entry.meta.slug}` },
   };
 }
 
 function List({ items, icon: Icon, tone }: { items: string[]; icon: typeof CircleCheck; tone: string }) {
   return (
     <ul className="space-y-2.5 text-sm leading-relaxed text-ink-muted">
+      <BreadcrumbJsonLd trail={[{ name: "Composants", path: "/composants" }, { name: meta.title }]} />
       {items.map((it) => (
         <li key={it} className="flex gap-2.5">
           <Icon className={`mt-0.5 size-4 shrink-0 ${tone}`} aria-hidden />

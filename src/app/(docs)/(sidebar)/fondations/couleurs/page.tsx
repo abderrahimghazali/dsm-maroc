@@ -3,10 +3,11 @@ import { CodeBlock } from "@/components/docs/code";
 import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { cn } from "@/dsm/lib/cn";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Couleurs",
-  description: "Une palette courte et signifiante : deux couleurs nationales, un bleu de lien, un safran d'alerte et une gamme de neutres chauds inspirés du sable et du tadelakt. Chaque couleur existe en clair et en sombre, et n'est jamais le seul vecteur d'information.",
+  description: "Une palette courte et signifiante : deux couleurs nationales, un bleu de lien, un safran d'alerte et une gamme de neutres chauds inspirés du sable et du.",
   alternates: { canonical: "/fondations/couleurs" },
   openGraph: { url: "/fondations/couleurs" },
 };
@@ -43,6 +44,7 @@ const neutrals: Swatch[] = [
 function SwatchGrid({ items, tall }: { items: Swatch[]; tall?: boolean }) {
   return (
     <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <BreadcrumbJsonLd trail={[{ name: "Couleurs" }]} />
       {items.map((s) => (
         <li key={s.token} className="overflow-hidden rounded-lg border border-line bg-surface shadow-xs">
           <div className={cn("flex items-end p-4", tall ? "h-28" : "h-20", s.cls, s.text)}>

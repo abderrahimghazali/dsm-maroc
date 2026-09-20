@@ -5,10 +5,11 @@ import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { Button } from "@/dsm/components/button";
 import { ArrowForward } from "@/dsm/icons";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Prise en main",
-  description: "DSM (Système de Design du Maroc) est un système de design complet pour les services publics numériques marocains : des fondations (couleurs, typographie, espacements), une bibliothèque de composants React accessibles et trilingues, et des modèles de pages prêts à assembler.",
+  description: "DSM (Système de Design du Maroc) est un système de design complet pour les services publics numériques marocains",
   alternates: { canonical: "/prise-en-main" },
   openGraph: { url: "/prise-en-main" },
 };
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 export default function GettingStarted() {
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Prise en main" }]} />
       <PageHeader
         eyebrow="Prise en main"
         title="Introduction"

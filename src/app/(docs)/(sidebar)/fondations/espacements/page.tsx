@@ -3,10 +3,11 @@ import { CodeBlock } from "@/components/docs/code";
 import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { cn } from "@/dsm/lib/cn";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Espacements & grille",
-  description: "Une échelle unique en base 4px pour tous les espacements, un conteneur central de 78rem, et une grille de douze colonnes pour composer les pages. Les mêmes valeurs gouvernent le rythme vertical des sections, les rayons et les ombres.",
+  description: "Une échelle unique en base 4px pour tous les espacements, un conteneur central de 78rem, et une grille de douze colonnes pour composer les pages.",
   alternates: { canonical: "/fondations/espacements" },
   openGraph: { url: "/fondations/espacements" },
 };
@@ -56,6 +57,7 @@ const shadows = [
 export default function Spacing() {
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Espacements & grille" }]} />
       <PageHeader
         eyebrow="Fondations"
         title="Espacements & grille"

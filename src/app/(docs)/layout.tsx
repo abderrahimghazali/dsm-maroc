@@ -14,7 +14,7 @@ import "@/app/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: { default: siteConfig.name, template: `%s · ${siteConfig.shortName}` },
+  title: { default: `${siteConfig.name} · Moroccan design system`, template: `%s · ${siteConfig.shortName}` },
   description: siteConfig.description,
   applicationName: siteConfig.shortName,
   keywords: [...siteConfig.keywords],
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: siteConfig.name,
     title: siteConfig.name,
-    description: siteConfig.description,
+    description: siteConfig.descriptionLong,
     locale: "fr_MA",
     alternateLocale: ["ar_MA", "en_US"],
   },
@@ -60,7 +60,7 @@ const jsonLd = {
       url: siteConfig.url,
       name: siteConfig.name,
       alternateName: ["DSM", "Système de Design du Maroc", "Morocco Design System", "Moroccan Design System"],
-      description: siteConfig.description,
+      description: siteConfig.descriptionLong,
       inLanguage: ["fr", "ar", "zgh"],
       author: { "@id": `${siteConfig.url}/#author` },
     },

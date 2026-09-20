@@ -4,6 +4,7 @@ import { CodeBlock } from "@/components/docs/code";
 import { PageHeader, Section } from "@/components/docs/page-header";
 import { Alert } from "@/dsm/components/alert";
 import { Button } from "@/dsm/components/button";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 import {
   ArrowForward,
   ArrowBack,
@@ -87,7 +88,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Iconographie",
-  description: "Un jeu curaté de Lucide, importé uniquement depuis @/dsm/icons. Les glyphes directionnels (flèches, chevrons) se retournent seuls en contexte RTL ; les glyphes à sens fixe (validation, fermeture, lien externe) ne bougent jamais.",
+  description: "Un jeu curaté de Lucide, importé uniquement depuis @/dsm/icons. Les glyphes directionnels (flèches, chevrons) se retournent seuls en contexte RTL",
   alternates: { canonical: "/fondations/iconographie" },
   openGraph: { url: "/fondations/iconographie" },
 };
@@ -185,6 +186,7 @@ const socials = [
 export default function Iconography() {
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Iconographie" }]} />
       <PageHeader
         eyebrow="Fondations"
         title="Iconographie"

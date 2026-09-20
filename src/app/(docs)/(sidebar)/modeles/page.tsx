@@ -5,10 +5,11 @@ import { Alert } from "@/dsm/components/alert";
 import { Badge } from "@/dsm/components/badge";
 import { Card, CardArrow, CardBadges, CardBody, CardFooter, CardMeta, CardText, CardTitle } from "@/dsm/components/card";
 import { ArrowForward } from "@/dsm/icons";
+import { BreadcrumbJsonLd } from "@/components/docs/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
   title: "Modèles",
-  description: "Le portail national de démonstration assemble les composants DSM en six modèles de page complets, réutilisables tels quels ou comme point de départ pour un service ministériel.",
+  description: "Le portail national de démonstration assemble les composants DSM en six modèles de page complets, réutilisables tels quels ou comme point de départ pour.",
   alternates: { canonical: "/modeles" },
   openGraph: { url: "/modeles" },
 };
@@ -76,6 +77,7 @@ const models: Model[] = [
 export default function Models() {
   return (
     <article>
+      <BreadcrumbJsonLd trail={[{ name: "Modèles" }]} />
       <PageHeader
         eyebrow="Modèles"
         title="Modèles de page"
