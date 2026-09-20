@@ -14,7 +14,7 @@ import "@/app/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: { default: `${siteConfig.name} · Moroccan design system`, template: `%s · ${siteConfig.shortName}` },
+  title: { default: siteConfig.name, template: `%s · ${siteConfig.shortName}` },
   description: siteConfig.description,
   applicationName: siteConfig.shortName,
   keywords: [...siteConfig.keywords],
